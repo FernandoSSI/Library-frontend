@@ -1,23 +1,19 @@
 import "./Navbar.css"
 import logo from "../imgs/logo.png"
 import { AiOutlineSearch } from 'react-icons/ai';
+import { Link } from "react-router-dom";
 
 
-
-interface NavbarProps{
-    
-}
-
-export function Navbar({  } : NavbarProps){
+export function Navbar(){
     return (
         <>
             <div className="logo-container">
                 <div className="icon">
-                    <img src={logo} alt="" />
+                    <Link to={"/"}><img src={logo} alt="" /></Link>
                 </div>
                 <div className="title">
-                    <h2>sebo e livraria</h2>
-                    <h1>carlos Drummond </h1>
+                    <Link to={"/"}><h2>sebo e livraria</h2></Link>
+                    <Link to={"/"}><h1>carlos Drummond </h1></Link>  
                 </div>
             </div>
             <div className="search-container">
@@ -27,11 +23,11 @@ export function Navbar({  } : NavbarProps){
                 </div>
                 <div className="links">
                     {/*depois mudar de a, par Link */}
-                    <a href="">LIVROS</a>
-                    <a href="">ADICIONAR </a>
-                    <a href="">EDITAR </a>
-                    <a href="">PEDIDOS </a>
-                    <a href="">RECEITA</a>
+                    <Link to={"/books"}>LIVROS</Link>
+                    <Link to={"/add"}>ADICIONAR</Link> 
+                    <Link>EDITAR</Link> 
+                    <Link>PEDIDOS</Link> 
+                    <Link>RECEITA</Link>
                 </div>
             </div>
         </>

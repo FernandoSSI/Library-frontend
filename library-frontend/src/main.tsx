@@ -1,26 +1,38 @@
-import {QueryClientProvider, QueryClient} from '@tanstack/react-query' 
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './pages/home/Home'
+import App from './pages/home/App'
+import Add from './pages/Add/Add'
+import Books from './pages/Books/Books'
 
 const queryClient = new QueryClient()
 
-const Home = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <App />,
+    children: [
+      {
+        path: "/add",
+        element: <Add />
+      },
+      {
+        path: "/books",
+        element: <Books />
+      }
+    ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    
+
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={Home} />
+      <RouterProvider router={router} />
     </QueryClientProvider>
-    
+
   </React.StrictMode>,
 )

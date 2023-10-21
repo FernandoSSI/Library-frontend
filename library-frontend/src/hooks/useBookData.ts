@@ -12,7 +12,7 @@ const fetchData =async (): AxiosPromise<bookData[]>  => {
 export function useBookData(){
     const query = useQuery({
         queryFn: fetchData,
-        queryKey: ['Book-data'],
+        queryKey: ['book-data'],
         retry: 2
     })
 
