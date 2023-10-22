@@ -1,6 +1,6 @@
 import axios, {AxiosPromise} from "axios"
 import { bookData } from "../interface/bookData"
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 const API_URL = "http://localhost:8080"
 

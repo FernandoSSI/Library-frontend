@@ -2,18 +2,20 @@ import React, {useState} from 'react'
 import './Add.css'
 import { useBookDataMutate } from '../../hooks/useBookDataMutate';
 import { bookData } from '../../interface/bookData';
+import { Navbar } from '../../components/Navbar/Navbar';
 
 interface InputProps{
     value: string | number,
-    type: string
+    type: string,
+    placeholder: string,
     updateValue(value: any): void;
 }
 
 
-const Input = ({value, type, updateValue}: InputProps) => {
+const Input = ({value, type, placeholder, updateValue}: InputProps) => {
     return(
         <>
-            <input value={value} type={type} onChange={e => updateValue(e.target.value)}></input>
+            <input value={value} type={type} onChange={e => updateValue(e.target.value)} placeholder={placeholder}></input>
         
         </>
     )
@@ -28,7 +30,7 @@ interface selectProps{
 const Select = ({value, updateValue}: selectProps) => {
     return(
         <>
-             <select value={value} onChange={e => updateValue(e.target.value)}>
+             <select value={value} onChange={e => updateValue(e.target.value)} >
                 <option value="Novo">Novo</option>
                 <option value="Seminovo" >Seminovo</option>
                 <option value="Usado" >Usado</option>
@@ -55,8 +57,7 @@ const Add = () => {
             title,
             author,
             price,
-            condition
-            
+            condition   
         } 
 
         mutate(bookData)
@@ -71,17 +72,17 @@ const Add = () => {
         <h2>DETALHES DO LIVRO</h2>
         <form className="input-container">
             <h2>Título</h2>
-            <Input value={title} type='text' updateValue={setTitle}/>
+            <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do lívro"/>
 
             <h2>Autor(a)</h2> 
-            <Input value={author} type='text' updateValue={setAuthor}/>
+            <Input value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do lívro"/>
 
             <h2>Estado</h2>
             <Select value={condition} updateValue={setCondition}/>
             
 
             <h2>Preço</h2>
-            <Input value={price} type='number' updateValue={setPrice}/>
+            <Input value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do lívro"/>
 
             <button onClick={submit} className='btn-submit'>
                 Adicionar
