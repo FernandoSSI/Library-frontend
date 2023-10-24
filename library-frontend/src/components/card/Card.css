@@ -5,29 +5,50 @@
     width: 800px;
     height: 140px;
     border-radius: 8px;
+    border: 1px solid rgb(173, 173, 173);
     box-shadow: rgba(122, 122, 122, 0.2) 0px 7px 29px 0px ;
     margin: 10px 0px 10px 0px;
     padding: 10px 10px 10px 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover{
+    background-color: rgb(243, 243, 243);
+    
 }
 
 .card h2{
-    color: rgb(26, 78, 78);
+    color: rgb(58, 58, 58);
     margin: 0;
     
 }
 
 .card #author{
     margin: -5px 0 40px 0;
+    color: rgb(107, 107, 107);
 }
 
 .card > .image-container {
     width: 92px;
-    height: 138px;
+    height: 130px;
     background-color: rgb(168, 168, 168);
 
 }
 
+.card > .image-container > img {
+    width: 100%;
+    height: 100%;
+} 
+
 .card > .data-container{
     margin: 0 0 0 15px;
     width: 70%;
+}
+
+.card #price{
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(29, 51, 66);
+    
 }

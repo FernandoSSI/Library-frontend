@@ -5,4 +5,5 @@ export interface bookData{
     price: number;
     condition: string;
     category?: object;
+    imgUrl?: string;
 }

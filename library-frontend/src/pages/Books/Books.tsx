@@ -3,6 +3,7 @@ import { Card } from '../../components/card/Card';
 import { useBookData } from '../../hooks/useBookData';
 import './Books.css'
 import { AiOutlineSearch } from 'react-icons/ai';
+import { NavbarSearch } from '../../components/Navbar/Navbar';
 
 
 
@@ -15,11 +16,8 @@ const Books = () => {
 
   return (
     <>
-      <div className="search">
-        <h1>Catálogo de livros</h1>
-        <input type="search" name="search-bar" id="bar" onChange={e => setSearch(e.target.value)} />
-        <button id="search-buttom" type="submit"><AiOutlineSearch /></button>
-      </div>
+      <NavbarSearch onchange={e => setSearch(e.target.value)}/>
+    
       <div className='book-body'>
         <div className='card-grid'>
 
@@ -29,13 +27,15 @@ const Books = () => {
                 <Card
                   price={bookData.price}
                   title={bookData.title}
-                  author={bookData.author} />)
+                  author={bookData.author} 
+                  imgUrl={bookData.imgUrl}/>)
             } else if (bookData.title.toLowerCase().includes(search.toLowerCase()) || bookData.author.toLowerCase().includes(search.toLowerCase())) {
               return (
                 <Card
                   price={bookData.price}
                   title={bookData.title}
-                  author={bookData.author} />
+                  author={bookData.author}
+                  imgUrl={bookData.imgUrl} />
               )
             }
           })}

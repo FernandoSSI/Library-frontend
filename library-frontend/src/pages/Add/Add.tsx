@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Add.css'
 import { useBookDataMutate } from '../../hooks/useBookDataMutate';
 import { bookData } from '../../interface/bookData';
-import { Navbar } from '../../components/Navbar/Navbar';
+import { Navbar, NavbarSearch } from '../../components/Navbar/Navbar';
 
 interface InputProps{
     value: string | number,
@@ -47,6 +47,7 @@ const Add = () => {
     const [author, setAuthor] = useState("");
     const [price, setPrice] = useState(0);
     const [condition, setCondition] = useState("");
+    const [imgUrl , setImgUrl] = useState("");
 
 
 
@@ -57,7 +58,8 @@ const Add = () => {
             title,
             author,
             price,
-            condition   
+            condition,
+            imgUrl   
         } 
 
         mutate(bookData)
@@ -66,6 +68,7 @@ const Add = () => {
 
   return (
     <>
+    <NavbarSearch/>
     <div className='add-container'>
         <h1>ADICIONAR</h1>
 
@@ -83,6 +86,9 @@ const Add = () => {
 
             <h2>Preço</h2>
             <Input value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do lívro"/>
+
+            <h2>Url da imagem</h2>
+            <Input value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem"/>
 
             <button onClick={submit} className='btn-submit'>
                 Adicionar

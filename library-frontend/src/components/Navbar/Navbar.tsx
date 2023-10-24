@@ -3,6 +3,10 @@ import logo from "../imgs/logo.png"
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
+interface NavbarSearchProps{
+    onchange : any,
+}
+
 
 export function Navbar(){
     return (
@@ -16,13 +20,31 @@ export function Navbar(){
                     <Link to={"/"}><h1>carlos Drummond </h1></Link>  
                 </div>
             </div>
-            <div className="search-container">
+           {/* <div className="search-container">
                 <div className="search-bar">
-                   {/*<input type="search" name="search-bar" id="bar" onChange={e => onchange}/>*/}
-                    {/*<button id="search-buttom" type="submit"><AiOutlineSearch/></button>*/}
+                   <input type="search" name="search-bar" id="bar"/>
+                    <button id="search-buttom" type="submit"><AiOutlineSearch/></button>
                 </div>
                 <div className="links">
-                    {/*depois mudar de a, par Link */}
+                    <Link to={"/books"}>LIVROS</Link>
+                    <Link to={"/add"}>ADICIONAR</Link> 
+                    <Link to={"/"}>EDITAR</Link> 
+                    <Link to={"/"}>PEDIDOS</Link> 
+                    <Link to={"/"}>RECEITA</Link>
+                </div>
+    </div>*/}
+        </>
+    )
+}
+
+export function NavbarSearch({onchange}: NavbarSearchProps){
+    return (
+        <div className="search-container">
+                <div className="search-bar">
+                   <input type="search" name="search-bar" id="bar" onChange={onchange} placeholder="Busque por título ou autor!"/>
+                    <button id="search-buttom" type="submit"><AiOutlineSearch/></button>
+                </div>
+                <div className="links">
                     <Link to={"/books"}>LIVROS</Link>
                     <Link to={"/add"}>ADICIONAR</Link> 
                     <Link to={"/"}>EDITAR</Link> 
@@ -30,6 +52,5 @@ export function Navbar(){
                     <Link to={"/"}>RECEITA</Link>
                 </div>
             </div>
-        </>
     )
 }
