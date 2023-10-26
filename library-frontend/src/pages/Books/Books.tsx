@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Card } from '../../components/card/Card';
 import { useBookData } from '../../hooks/useBookData';
 import './Books.css'
-import { AiOutlineSearch } from 'react-icons/ai';
 import { NavbarSearch } from '../../components/Navbar/Navbar';
 
 
@@ -16,7 +15,7 @@ const Books = () => {
 
   return (
     <>
-      <NavbarSearch onchange={e => setSearch(e.target.value)}/>
+      <NavbarSearch onchange={(e: any) => setSearch(e.target.value)}/>
     
       <div className='book-body'>
         <div className='card-grid'>

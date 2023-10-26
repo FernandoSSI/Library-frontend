@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import './Add.css'
 import { useBookDataMutate } from '../../hooks/useBookDataMutate';
 import { bookData } from '../../interface/bookData';
-import { Navbar, NavbarSearch } from '../../components/Navbar/Navbar';
+import {NavbarSearch } from '../../components/Navbar/Navbar';
 
 interface InputProps{
     value: string | number,

@@ -4,7 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
 interface NavbarSearchProps{
-    onchange : any,
+    onchange? : any,
 }
 
 
@@ -20,19 +20,6 @@ export function Navbar(){
                     <Link to={"/"}><h1>carlos Drummond </h1></Link>  
                 </div>
             </div>
-           {/* <div className="search-container">
-                <div className="search-bar">
-                   <input type="search" name="search-bar" id="bar"/>
-                    <button id="search-buttom" type="submit"><AiOutlineSearch/></button>
-                </div>
-                <div className="links">
-                    <Link to={"/books"}>LIVROS</Link>
-                    <Link to={"/add"}>ADICIONAR</Link> 
-                    <Link to={"/"}>EDITAR</Link> 
-                    <Link to={"/"}>PEDIDOS</Link> 
-                    <Link to={"/"}>RECEITA</Link>
-                </div>
-    </div>*/}
         </>
     )
 }
@@ -41,8 +28,9 @@ export function NavbarSearch({onchange}: NavbarSearchProps){
     return (
         <div className="search-container">
                 <div className="search-bar">
-                   <input type="search" name="search-bar" id="bar" onChange={onchange} placeholder="Busque por título ou autor!"/>
-                    <button id="search-buttom" type="submit"><AiOutlineSearch/></button>
+                    {onchange && <><input type="search" name="search-bar" id="bar" onChange={onchange} placeholder="Busque por título ou autor!"/>
+                    <button id="search-buttom" type="submit"><AiOutlineSearch/></button></>}
+                   
                 </div>
                 <div className="links">
                     <Link to={"/books"}>LIVROS</Link>
