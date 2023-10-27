@@ -30,7 +30,8 @@ interface selectProps{
 const Select = ({value, updateValue}: selectProps) => {
     return(
         <>
-             <select value={value} onChange={e => updateValue(e.target.value)} >
+             <select value={value} onChange={e => updateValue(e.target.value)} placeholder='estado' >
+                <option value="" disabled selected hidden id='placeHolderOpt'></option>
                 <option value="Novo">Novo</option>
                 <option value="Seminovo" >Seminovo</option>
                 <option value="Usado" >Usado</option>
@@ -48,7 +49,7 @@ const Add = () => {
     const [price, setPrice] = useState(0);
     const [condition, setCondition] = useState("");
     const [imgUrl , setImgUrl] = useState("");
-
+    
 
 
     const {mutate} = useBookDataMutate()

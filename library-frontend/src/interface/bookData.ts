@@ -1,9 +1,9 @@
 export interface bookData{
-    id?: string;
+    id?: any;
     title: string;
     author: string;
     price: number;
     condition: string;
     category?: object;
-    imgUrl?: string;
+    imgUrl: string;
 }

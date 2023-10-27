@@ -3,6 +3,8 @@ import { Card } from '../../components/card/Card';
 import { useBookData } from '../../hooks/useBookData';
 import './Books.css'
 import { NavbarSearch } from '../../components/Navbar/Navbar';
+import { SelectedCard } from '../../components/SelectedCard/SelectedCard';
+import { bookData } from '../../interface/bookData';
 
 
 
@@ -24,6 +26,8 @@ const Books = () => {
             if (search == "") {
               return (
                 <Card
+                  id={bookData.id}
+                  condition={bookData.condition}
                   price={bookData.price}
                   title={bookData.title}
                   author={bookData.author} 
@@ -31,6 +35,8 @@ const Books = () => {
             } else if (bookData.title.toLowerCase().includes(search.toLowerCase()) || bookData.author.toLowerCase().includes(search.toLowerCase())) {
               return (
                 <Card
+                  id={bookData.id}
+                  condition={bookData.condition}
                   price={bookData.price}
                   title={bookData.title}
                   author={bookData.author}
