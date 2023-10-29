@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Card } from '../../components/card/Card';
-import { useBookData } from '../../hooks/useBookData';
+import { useBookData } from '../../hooks/useBookDataGet';
 import './Books.css'
 import { NavbarSearch } from '../../components/Navbar/Navbar';
 import { SelectedCard } from '../../components/SelectedCard/SelectedCard';

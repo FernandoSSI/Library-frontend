@@ -8,6 +8,7 @@ interface NavbarSearchProps{
 }
 
 
+
 export function Navbar(){
     return (
         <>

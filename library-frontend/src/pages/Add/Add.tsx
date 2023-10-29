@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './Add.css'
-import { useBookDataMutate } from '../../hooks/useBookDataMutate';
+import { useBookDataMutate } from '../../hooks/useBookDataPost';
 import { bookData } from '../../interface/bookData';
 import {NavbarSearch } from '../../components/Navbar/Navbar';
 
@@ -72,8 +72,6 @@ const Add = () => {
     <NavbarSearch/>
     <div className='add-container'>
         <h1>ADICIONAR</h1>
-
-        <h2>DETALHES DO LIVRO</h2>
         <form className="input-container">
             <h2>Título</h2>
             <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do lívro"/>
