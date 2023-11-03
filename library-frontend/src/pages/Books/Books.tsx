@@ -17,22 +17,14 @@ const Books = () => {
 
   return (
     <>
-      <NavbarSearch onchange={(e: any) => setSearch(e.target.value)}/>
-    
+      <NavbarSearch onchange={(e: any) => setSearch(e.target.value)} />
+      <div className='books-title'> <h1>Livros</h1></div>
+
       <div className='book-body'>
         <div className='card-grid'>
 
           {data?.map(bookData => {
-            if (search == "") {
-              return (
-                <Card
-                  id={bookData.id}
-                  condition={bookData.condition}
-                  price={bookData.price}
-                  title={bookData.title}
-                  author={bookData.author} 
-                  imgUrl={bookData.imgUrl}/>)
-            } else if (bookData.title.toLowerCase().includes(search.toLowerCase()) || bookData.author.toLowerCase().includes(search.toLowerCase())) {
+            if ((bookData.title.toLowerCase().includes(search.toLowerCase()) || bookData.author.toLowerCase().includes(search.toLowerCase())) || bookData.category.toLowerCase().includes(search.toLowerCase()) ) {
               return (
                 <Card
                   id={bookData.id}
@@ -40,7 +32,8 @@ const Books = () => {
                   price={bookData.price}
                   title={bookData.title}
                   author={bookData.author}
-                  imgUrl={bookData.imgUrl} />
+                  imgUrl={bookData.imgUrl}
+                  category={bookData.category} />
               )
             }
           })}

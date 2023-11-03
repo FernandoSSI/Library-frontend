@@ -8,10 +8,12 @@ interface CardProps{
     price: number,
     title: string,
     author:string,
-    imgUrl : string
+    imgUrl : string,
+    category: string
+
 }
 
-export function Card({ price, title, author, imgUrl, id, condition } : CardProps){
+export function Card({ price, title, author, imgUrl, id, condition, category } : CardProps){
     const[selected, setSelected] = useState(false)
 
     const handleSelectedCard= () =>{
@@ -28,6 +30,7 @@ export function Card({ price, title, author, imgUrl, id, condition } : CardProps
                 <div className="data-container">
                     <h2 id="title">{title}</h2>
                     <p id="author">{author}</p>
+                    <p id="category">{category}</p>
                 </div>
                 <div className="price-container">
                     <p id="price">R$ {price}</p>
@@ -42,7 +45,8 @@ export function Card({ price, title, author, imgUrl, id, condition } : CardProps
             title={title}
             author={author}
             condition={condition}
-            price={price}  />}
+            price={price} 
+            category={category} />}
 
         </>
         

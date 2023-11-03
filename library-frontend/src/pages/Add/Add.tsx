@@ -49,6 +49,7 @@ const Add = () => {
     const [price, setPrice] = useState(0);
     const [condition, setCondition] = useState("");
     const [imgUrl , setImgUrl] = useState("");
+    const [category, setCategory] = useState("");
     
 
 
@@ -60,7 +61,8 @@ const Add = () => {
             author,
             price,
             condition,
-            imgUrl   
+            imgUrl,
+            category   
         } 
 
         mutate(bookData)
@@ -74,20 +76,23 @@ const Add = () => {
         <h1>ADICIONAR</h1>
         <form className="input-container">
             <h2>Título</h2>
-            <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do lívro"/>
+            <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do livro"/>
 
             <h2>Autor(a)</h2> 
-            <Input value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do lívro"/>
+            <Input value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do livro"/>
 
             <h2>Estado</h2>
             <Select value={condition} updateValue={setCondition}/>
             
 
             <h2>Preço</h2>
-            <Input value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do lívro"/>
+            <Input value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do livro"/>
 
             <h2>Url da imagem</h2>
-            <Input value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem"/>
+            <Input value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem "/>
+
+            <h2>Categoria</h2>
+            <Input value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro"/>
 
             <button onClick={submit} className='btn-submit'>
                 Adicionar

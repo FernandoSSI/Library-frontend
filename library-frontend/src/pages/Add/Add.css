@@ -11,10 +11,11 @@
 .input-container{
     background-color: #F3F3F3;
     width: 600px;
-    height: 650px;
+    height: 770px;
+    border-radius: 10px;
     box-sizing: border-box;
     padding: 20px 70px;
-    
+    margin-bottom: 20px;
 }
 
 .input-container > h2 {

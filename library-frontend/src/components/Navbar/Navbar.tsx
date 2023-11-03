@@ -29,14 +29,13 @@ export function NavbarSearch({onchange}: NavbarSearchProps){
     return (
         <div className="search-container">
                 <div className="search-bar">
-                    {onchange && <><input type="search" name="search-bar" id="bar" onChange={onchange} placeholder="Busque por título ou autor!"/>
+                    {onchange && <><input type="search" name="search-bar" id="bar" onChange={onchange} placeholder="Busque por título, autor ou categoria!"/>
                     <button id="search-buttom" type="submit"><AiOutlineSearch/></button></>}
                    
                 </div>
                 <div className="links">
                     <Link to={"/books"}>LIVROS</Link>
-                    <Link to={"/add"}>ADICIONAR</Link> 
-                    <Link to={"/"}>EDITAR</Link> 
+                    <Link to={"/add"}>ADICIONAR</Link>  
                     <Link to={"/"}>PEDIDOS</Link> 
                     <Link to={"/"}>RECEITA</Link>
                 </div>

@@ -4,6 +4,6 @@ export interface bookData{
     author: string;
     price: number;
     condition: string;
-    category?: object;
+    category: string;
     imgUrl: string;
 }

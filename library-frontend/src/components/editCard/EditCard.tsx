@@ -49,16 +49,18 @@ interface EditCardProps {
     authorProp: string,
     priceProp: number,
     conditionProp: string
+    categoryProp: string
 
 }
 
-export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceProp, conditionProp }: EditCardProps) {
+export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceProp, conditionProp, categoryProp }: EditCardProps) {
     const [id, setId] = useState(idProp)
     const [imgUrl, setImgUrl] = useState(imgProp)
     const [title, setTitle] = useState(titleProp)
     const [author, setAuthor] = useState(authorProp)
     const [condition, setCondition] = useState(conditionProp)
     const [price, setPrice] = useState(priceProp)
+    const [category, setCategory] = useState(categoryProp)
 
     const { mutate } = useBookDataPut()
     const submit = () => {
@@ -68,6 +70,7 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
             author,
             price,
             condition,
+            category,
             imgUrl
         }
 
@@ -79,8 +82,17 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
         <>
             <div className='edit-overlay'>
                 <div className='add-container-edit'>
-                    <form className="input-container">
-                        <div className='btn-edit'><button className='close-edit' onClick={close}>X</button></div>
+                    <form className="input-container-edit">
+                        
+                        <div className='btn-edit'>
+                            <button className='close-edit' onClick={close}>X</button>
+                            <button onClick={submit} className='btn-submit-edit'>
+                            Editar
+                            </button>
+                        </div>
+                        
+                        
+                        
                         <h2>Título</h2>
                         <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do lívro" />
 
@@ -97,9 +109,10 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
                         <h2>Url da imagem</h2>
                         <Input value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem" />
 
-                        <button onClick={submit} className='btn-submit'>
-                            Editar
-                        </button>
+                        <h2>Categoria</h2>
+                        <Input value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro" />
+
+                        
                     </form>
                 </div>
             </div>

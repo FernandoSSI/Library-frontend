@@ -20,8 +20,18 @@
     margin: 10px 0 50px 0;
 }
 
+.books-title{
+    margin: 0 20px 10px 20px;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    
+}
+
+.books-title h1{
+    color: rgb(31, 75, 92);
+}
+
 .search>h1 {
-    margin: 0 20px 0 20px;
+    margin: 0 20px 0 20px; 
 }
 
 .search>#bar {

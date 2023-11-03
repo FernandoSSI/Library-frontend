@@ -4,10 +4,10 @@
     align-items: center;
     width: 800px;
     height: 140px;
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px solid rgb(173, 173, 173);
     box-shadow: rgba(122, 122, 122, 0.2) 0px 7px 29px 0px ;
-    margin: 10px 0px 10px 0px;
+    margin: 5px 0px 5px 0px;
     padding: 10px 10px 10px 10px;
     transition: 0.3s;
     cursor: pointer;
@@ -29,10 +29,14 @@
     color: rgb(107, 107, 107);
 }
 
+.card #category{
+    color: rgb(107, 107, 107);
+}
+
 .card > .image-container {
     width: 92px;
     height: 130px;
-    background-color: rgb(168, 168, 168);
+    background-color: rgb(255, 255, 255);
 
 }
 
