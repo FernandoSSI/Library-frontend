@@ -25,7 +25,7 @@
 
 .input-container-edit{
     background-color: #F3F3F3;
-    width: 600px;
+    width: 800px;
     height: 680px;
     box-sizing: border-box;
     padding: 20px 70px;
@@ -33,12 +33,12 @@
     
 }
 
-.input-container-edit > h2 {
-    margin-bottom: 5px;
-    font-size: 30px;
+.input-container-edit h3 {
+    margin: 35px 0 5px 0;
+
 }
 
-.input-container-edit >input {
+.input-container-edit input {
     background-color: #fff;
     box-sizing: border-box;
     outline: none;
@@ -48,9 +48,10 @@
     width: 100%;
     height: 30px;
     font-size: 20px;
+    margin: 0 0 -30px 0;
 }
 
-.input-container-edit > select{
+.input-container-edit  select{
     background-color: #fff;
     outline: none;
     border: 1px solid #6ba5d8;
@@ -58,6 +59,10 @@
     width: 100%;
     height: 30px;
     font-size: 20px;
+}
+
+.inputs-edit{
+    margin: -60px 0 0 0;
 }
 
 .btn-containder-edit{

@@ -11,11 +11,12 @@ interface SelectedCardProps {
     title: string,
     author: string,
     price: number,
-    condition: string
-    category: string
+    condition: string,
+    category: string,
+    quantity: number
 }
 
-export function SelectedCard({ close, id, img, title, author, price, condition, category }: SelectedCardProps) {
+export function SelectedCard({ close, id, img, title, author, price, condition, category, quantity}: SelectedCardProps) {
 
     const [edit, setEdit] = useState(false)
 
@@ -47,6 +48,7 @@ export function SelectedCard({ close, id, img, title, author, price, condition, 
                         <p id='author'>{author}</p>
                         <h1 id='price'>R$ {price}</h1>
                         <p>{category}</p>
+                        <p>qtd: {quantity}</p>
 
                     </div>
                     <div className="btn-containerSl">
@@ -64,7 +66,8 @@ export function SelectedCard({ close, id, img, title, author, price, condition, 
                 authorProp={author}
                 conditionProp={condition}
                 priceProp={price} 
-                categoryProp={category}/>}
+                categoryProp={category}
+                quantityProp={quantity}/>}
         </>
     )
 }

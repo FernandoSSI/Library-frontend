@@ -56,3 +56,8 @@
     color: rgb(29, 51, 66);
     
 }
+
+.card #quantity{
+    color: rgb(107, 107, 107);
+    margin: -15px 0 0 0;
+}

@@ -33,7 +33,8 @@ const Books = () => {
                   title={bookData.title}
                   author={bookData.author}
                   imgUrl={bookData.imgUrl}
-                  category={bookData.category} />
+                  category={bookData.category} 
+                  quantity={bookData.quantity}/>
               )
             }
           })}

@@ -50,6 +50,7 @@ const Add = () => {
     const [condition, setCondition] = useState("");
     const [imgUrl , setImgUrl] = useState("");
     const [category, setCategory] = useState("");
+    const [quantity, setQuantity] = useState(1);
     
 
 
@@ -62,7 +63,8 @@ const Add = () => {
             price,
             condition,
             imgUrl,
-            category   
+            category,   
+            quantity
         } 
 
         mutate(bookData)
@@ -93,6 +95,9 @@ const Add = () => {
 
             <h2>Categoria</h2>
             <Input value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro"/>
+
+            <h2>Quantidade</h2>
+            <Input value={quantity} type='number' updateValue={setQuantity} placeholder="Digite a categoria do livro"/>
 
             <button onClick={submit} className='btn-submit'>
                 Adicionar

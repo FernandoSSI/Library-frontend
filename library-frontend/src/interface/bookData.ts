@@ -6,4 +6,5 @@ export interface bookData{
     condition: string;
     category: string;
     imgUrl: string;
+    quantity: number;
 }

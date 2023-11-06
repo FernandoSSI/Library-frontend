@@ -50,10 +50,11 @@ interface EditCardProps {
     priceProp: number,
     conditionProp: string
     categoryProp: string
+    quantityProp: number
 
 }
 
-export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceProp, conditionProp, categoryProp }: EditCardProps) {
+export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceProp, conditionProp, categoryProp, quantityProp }: EditCardProps) {
     const [id, setId] = useState(idProp)
     const [imgUrl, setImgUrl] = useState(imgProp)
     const [title, setTitle] = useState(titleProp)
@@ -61,6 +62,7 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
     const [condition, setCondition] = useState(conditionProp)
     const [price, setPrice] = useState(priceProp)
     const [category, setCategory] = useState(categoryProp)
+    const [quantity, setQuantity] = useState(quantityProp)
 
     const { mutate } = useBookDataPut()
     const submit = () => {
@@ -71,7 +73,8 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
             price,
             condition,
             category,
-            imgUrl
+            imgUrl,
+            quantity,
         }
 
         mutate(bookData)
@@ -92,27 +95,31 @@ export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceP
                         </div>
                         
                         
-                        
-                        <h2>Título</h2>
+                        <div className='inputs-edit'>
+                        <h3>Título</h3>
                         <Input value={title} type='text' updateValue={setTitle} placeholder="Digite o título do lívro" />
 
-                        <h2>Autor(a)</h2>
+                        <h3>Autor(a)</h3>
                         <Input value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do lívro" />
 
-                        <h2>Estado</h2>
+                        <h3>Estado</h3>
                         <Select value={condition} updateValue={setCondition} />
 
 
-                        <h2>Preço</h2>
+                        <h3>Preço</h3>
                         <Input value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do lívro" />
 
-                        <h2>Url da imagem</h2>
+                        <h3>Url da imagem</h3>
                         <Input value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem" />
 
-                        <h2>Categoria</h2>
+                        <h3>Categoria</h3>
                         <Input value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro" />
 
+                        <h3>
+                            qtd: {<Input value={quantity} type='number' updateValue={setQuantity} placeholder="" />}
+                        </h3>
                         
+                        </div>
                     </form>
                 </div>
             </div>
