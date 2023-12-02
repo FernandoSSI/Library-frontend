@@ -17,8 +17,8 @@ export function Navbar(){
                     <Link to={"/"}><img src={logo} alt="" /></Link>
                 </div>
                 <div className="title">
-                    <Link to={"/"}><h2>sebo e livraria</h2></Link>
-                    <Link to={"/"}><h1>carlos Drummond </h1></Link>  
+                    {/*<Link to={"/"}><h2>sebo e livraria Carlos Drummond</h2></Link>*/}
+                    
                 </div>
             </div>
         </>

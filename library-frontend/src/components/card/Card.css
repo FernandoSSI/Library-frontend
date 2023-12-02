@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 800px;
-    height: 140px;
-    border-radius: 5px;
+    width: 1367px;
+    height: 110px;
+    border-radius: 2px;
     border: 1px solid rgb(173, 173, 173);
-    box-shadow: rgba(122, 122, 122, 0.2) 0px 7px 29px 0px ;
-    margin: 5px 0px 5px 0px;
+   
+    margin: 5px 0px 2px 0px;
     padding: 10px 10px 10px 10px;
     transition: 0.3s;
     cursor: pointer;
@@ -18,25 +18,19 @@
     
 }
 
-.card h2{
-    color: rgb(58, 58, 58);
-    margin: 0;
-    
-}
-
-.card #author{
-    margin: -5px 0 40px 0;
-    color: rgb(107, 107, 107);
-}
-
-.card #category{
-    color: rgb(107, 107, 107);
+.card span{
+    height: 80px;
 }
 
 .card > .image-container {
-    width: 92px;
-    height: 130px;
+    width: 77px;
+    height: 110px;
     background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 24px;
+    border: none;
 
 }
 
@@ -45,19 +39,66 @@
     height: 100%;
 } 
 
+.card-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 237px;
+    border-right: 1px solid rgb(209, 209, 209);
+    border-left: 1px solid rgb(209, 209, 209);
+}
+
+.card-author{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 237px;
+    border-right: 1px solid rgb(209, 209, 209);
+}
+
+.card-condition{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 261px;
+    border-right: 1px solid rgb(209, 209, 209);
+}
+
+.card-category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    border-right: 1px solid rgb(209, 209, 209);
+}
+
+.card-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 112px;
+    border-right: 1px solid rgb(209, 209, 209);
+}
+
+.card-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    border-right: 0;
+}
+
+.card #author, #category, #condition{
+    color: rgb(32, 32, 32);
+}
+
 .card > .data-container{
     margin: 0 0 0 15px;
     width: 70%;
 }
 
-.card #price{
-    font-weight: bold;
-    font-size: 35px;
-    color: rgb(29, 51, 66);
-    
-}
-
-.card #quantity{
-    color: rgb(107, 107, 107);
-    margin: -15px 0 0 0;
+.card #price, #quantity{
+    font-size: 30px;
+    color: rgb(32, 32, 32);
 }

@@ -73,7 +73,7 @@ const Add = () => {
 
   return (
     <>
-    <NavbarSearch/>
+    
     <div className='add-container'>
         <h1>ADICIONAR</h1>
         <form className="input-container">
