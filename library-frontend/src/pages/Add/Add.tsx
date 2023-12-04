@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './Add.css'
-import { useBookDataMutate } from '../../hooks/useBookDataPost';
+import { useBookDataMutate } from '../../hooks/useBookData/useBookDataPost';
 import { bookData } from '../../interface/bookData';
 import {NavbarSearch } from '../../components/Navbar/Navbar';
 
@@ -126,7 +126,7 @@ const Add = () => {
             <Input id="input-quantity" value={quantity} type='number' updateValue={setQuantity} placeholder="Digite a categoria do livro"/>
             </span>
         </div>
-        
+
             <button onClick={submit} className='btn-submit'>
                 Adicionar
             </button>

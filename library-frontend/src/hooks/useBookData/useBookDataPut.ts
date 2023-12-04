@@ -1,18 +1,22 @@
 import axios, {AxiosPromise} from "axios"
-import { bookData } from "../interface/bookData"
+import { bookData } from "../../interface/bookData"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 const API_URL = "http://localhost:8080"
 
-const postData =async (data: bookData): AxiosPromise<any>  => {
-    const response = axios.post(API_URL + '/books', data)
+
+
+
+const putData =async (data: bookData): AxiosPromise<any>  => {
+
+    const response = axios.put(API_URL + `/books/${data.id}`, data)
     return response
 }
 
-export function useBookDataMutate(){
+export function useBookDataPut(){
     const queryClient = useQueryClient()
     const mutate = useMutation({
-        mutationFn: postData,
+        mutationFn: putData,
         retry: 2,
         onSuccess: ()=>{
             queryClient.invalidateQueries(['book-data'])

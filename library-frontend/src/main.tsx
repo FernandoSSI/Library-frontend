@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './pages/home/App'
 import Add from './pages/Add/Add'
 import Books from './pages/Books/Books'
+import { OnlineCatalog } from './pages/onlineCatalog/OnlineCatalog'
 
 const queryClient = new QueryClient()
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/books",
         element: <Books />
+      },
+      {
+        path: "/onlinecatalog",
+        element: <OnlineCatalog/>
       }
     ]
   },

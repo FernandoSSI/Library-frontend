@@ -1,0 +1,36 @@
+.cardGB-container{
+    background-color: rgb(252, 252, 252);
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border: 1px solid rgb(211, 211, 211);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.imgGB-container{
+    background: gainsboro;
+    width: 120px;
+    height: 171px;
+    margin: 20px 0;
+}
+
+.infos{
+    margin: 0 5px;
+
+}
+
+.titleGB{
+    margin: 0;
+}
+
+.authorGB{
+    margin: 0;
+}
+
+.companyGB{
+    margin: 0;
+}

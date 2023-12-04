@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Card } from '../../components/card/Card';
-import { useBookData } from '../../hooks/useBookDataGet';
+import { Card } from '../../components/cards/Card';
+import { useBookData } from '../../hooks/useBookData/useBookDataGet';
 import './Books.css'
 import { NavbarSearch } from '../../components/Navbar/Navbar';
 import { SelectedCard } from '../../components/SelectedCard/SelectedCard';
@@ -15,11 +15,10 @@ const Books = () => {
   const { data } = useBookData()
   const [search, setSearch] = useState("")
 
-
+  
 
   return (
     <>
-      {/*<NavbarSearch onchange={(e: any) => setSearch(e.target.value)} />*/}
       <div className='body-container'>
         <div className='books-title'> <h1>Acervo</h1></div>
         <SearchBar onchange={(e: any) => setSearch(e.target.value)}/>

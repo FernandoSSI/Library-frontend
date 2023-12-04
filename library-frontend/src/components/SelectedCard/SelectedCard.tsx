@@ -1,4 +1,4 @@
-import { useBookDataDelete } from '../../hooks/useBookDataDelete'
+import { useBookDataDelete } from '../../hooks/useBookData/useBookDataDelete'
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
 import './SelectedCard.css'
 import { useState } from 'react'

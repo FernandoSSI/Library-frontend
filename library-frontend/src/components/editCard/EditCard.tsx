@@ -1,4 +1,4 @@
-import { useBookDataPut } from '../../hooks/useBookDataPut'
+import { useBookDataPut } from '../../hooks/useBookData/useBookDataPut'
 import { bookData } from '../../interface/bookData'
 import './EditCard.css'
 import { useState } from 'react'

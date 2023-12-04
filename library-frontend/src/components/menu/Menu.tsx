@@ -40,7 +40,7 @@ export function Menu() {
                             </Link>
                         </li>
                         <li className="menu-item">
-                            <Link to={""}>
+                            <Link to={"/onlinecatalog"}>
                                 <span className="menu-icon"><SlGlobe /></span>
                                 <span className="txt-link">Catálogo online</span>
                             </Link>
