@@ -16,6 +16,7 @@
 .card:hover{
     background-color: rgb(243, 243, 243);
     
+    
 }
 
 .card span{
@@ -99,6 +100,6 @@
 }
 
 .card #price, #quantity{
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(32, 32, 32);
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Menu.css"
-import { SlMenu, SlBookOpen, SlGlobe, SlUser, SlList, SlWallet } from "react-icons/sl";
+import { SlMenu, SlBookOpen, SlGlobe, SlPeople , SlList, SlWallet, SlNote  } from "react-icons/sl";
 import { useState } from "react";
 
 
@@ -34,6 +34,12 @@ export function Menu() {
                             </Link>
                         </li>
                         <li className="menu-item">
+                            <Link to={"/add"}>
+                                <span className="menu-icon"><SlNote  /></span>
+                                <span className="txt-link">Adicionar ao acervo</span>
+                            </Link>
+                        </li>
+                        <li className="menu-item">
                             <Link to={""}>
                                 <span className="menu-icon"><SlGlobe /></span>
                                 <span className="txt-link">Catálogo online</span>
@@ -41,7 +47,7 @@ export function Menu() {
                         </li>
                         <li className="menu-item">
                             <Link to={""}>
-                                <span className="menu-icon"><SlUser /></span>
+                                <span className="menu-icon"><SlPeople  /></span>
                                 <span className="txt-link">Clientes</span>
                             </Link>
                         </li>
