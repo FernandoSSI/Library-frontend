@@ -10,7 +10,10 @@ export function OnlineCatalog() {
     const [search,setSearch]=useState("");
     const [bookData,setData]=useState<any[]>([]);
 
-    const keyApi = "AIzaSyCawe1Lhyw4NKGkVe0NNGBz7XZsQIUCH4k"
+    // API key in environment variable
+    let keyApi = JSON.stringify(import.meta.env.VITE_BOOKS_API_KEY)
+    keyApi = keyApi.replace(/["]/g, '');
+    
 
     const searchBook=()=>{
         axios.get("https://www.googleapis.com/books/v1/volumes?q="+ search +"&key=" + keyApi+ "&maxResults=24")
