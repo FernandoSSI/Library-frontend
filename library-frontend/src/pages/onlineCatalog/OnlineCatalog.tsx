@@ -16,10 +16,9 @@ export function OnlineCatalog() {
     
 
     const searchBook=()=>{
-        axios.get("https://www.googleapis.com/books/v1/volumes?q="+ search +"&key=" + keyApi+ "&maxResults=24")
+        axios.get("https://www.googleapis.com/books/v1/volumes?q="+ search +"&key=" + keyApi+ "&maxResults=25&langRestrict=pt-BR")
         .then(res=>setData(res.data.items))
         .catch(err=>console.log(err))
-        
     }
     // adicionar paginação
 
@@ -45,13 +44,20 @@ export function OnlineCatalog() {
                     {bookData?.map(item => {
 
                         let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail
-
+                        let author = item.volumeInfo.authors
+                        let category = item.volumeInfo.categories
+                        if(item.volumeInfo.authors && item.volumeInfo.categories){
+                            author= JSON.stringify(item.volumeInfo.authors).replace(/[\[\]"]/g, '')
+                            category = JSON.stringify(item.volumeInfo.categories).replace(/[\[\]"]/g, '')
+                        }
+                        
                         return (
                             <CardGB
                             title={item.volumeInfo.title}
-                            author={item.volumeInfo.authors}
+                            author={author}
                             imgUrl={thumbnail}
-                            company={item.volumeInfo.publisher} />
+                            company={item.volumeInfo.publisher}
+                            category={category} />
                         )
                     })}
                     

@@ -16,10 +16,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #e0e0e0;
+    background-color: #052f3b;
     padding: 0px 0 10px 0 ;
     box-sizing: border-box;
     overflow: hidden;
+    border-radius: 0 20px 20px 0;
     transition: 0.2s;
 }
 
@@ -28,12 +29,11 @@
 }
 
 .expand{
-    
     padding-left: 15px;
     height: 80px;
     display: flex;
     align-items: center;
-    color: rgb(0, 0, 0);
+    color: #ffff;
     font-size: 27px;
     cursor: pointer;
     box-sizing: border-box;
@@ -41,9 +41,9 @@
     transition: 0.1s;
 }
 
-.expand:hover{
-    background-color: #c0c6ce;
-}
+
+
+
 
 .menu-ul{
     height: 100%;
@@ -55,15 +55,22 @@
 }
 
 .menu-item{
-    transition: 0.1s;
+    transition: 0.05s;
 }
 
 .menu-item:hover{
-    background-color: #c0c6ce;
+    background-color: rgb(247, 247, 247);
+    border-radius: 10px 0 0 10px;
 }
 
+.menu-item:hover a{
+    color: #052f3b;
+}
+
+
+
 .menu-item a{
-    color: rgb(0, 0, 0);
+    color: #ffff;
     text-decoration: none;
     font-size: 20px;
     padding: 20px 0;
@@ -82,4 +89,23 @@
     font-size: 27px;
     
 }
+
+
+.active{
+    border-radius: 10px 0 0 10px;
+    background-color: rgb(247, 247, 247);
+}
+
+.active a{
+    color: #052f3b;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 0;
+    margin-left: 15px;
+    display: flex;
+    line-height: 40px;
+}
+
+
+
 

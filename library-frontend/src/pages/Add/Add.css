@@ -1,18 +1,30 @@
 .add-title h1{
-    color: rgb(31, 75, 92);
+    color: #0b3844;
+}
+
+.add-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #0b3844;
 }
 
 .add-container{
     display: flex;
-    width: 100vw;
-    margin-left: 100px;
+    width: 100%;
+    height: 100vh;
+    margin-left: 65px;
+    padding-left: 20px;
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
+    background-color: rgb(247, 247, 247);
+    border-radius: 15px 0 0 15px; 
 }
 
 .input-container{
-    width: 100%;
+    width: 90%;
+    background-color: #ffff;
+    border-radius: 20px;
     height: 100vh;
     box-sizing: border-box;
     display: flex;

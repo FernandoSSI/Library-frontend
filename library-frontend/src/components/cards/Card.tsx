@@ -16,6 +16,10 @@ interface CardProps{
 
 export function Card({ price, title, author, imgUrl, id, condition, category, quantity } : CardProps){
     const[selected, setSelected] = useState(false)
+    let quantityId = "quantity"
+    if(quantity==0){
+        quantityId= "zeroQtd"
+    }
 
     const handleSelectedCard= () =>{
         setSelected(prev => !prev)
@@ -33,7 +37,7 @@ export function Card({ price, title, author, imgUrl, id, condition, category, qu
                 <span className='card-condition'><p id='condition'>{condition}</p></span>
                 <span className='card-category'><p id="category">{category}</p></span>
                 <span className='card-price'><p id="price">R$ {price}</p></span>
-                <span className='card-quantity'><p id="quantity">{quantity}</p></span>
+                <span className='card-quantity'><p id={quantityId}>{quantity}</p></span>
             </div>
 
             {selected && <SelectedCard 

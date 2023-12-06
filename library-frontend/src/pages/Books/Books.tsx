@@ -2,10 +2,6 @@ import { useState } from 'react'
 import { Card } from '../../components/cards/Card';
 import { useBookData } from '../../hooks/useBookData/useBookDataGet';
 import './Books.css'
-import { NavbarSearch } from '../../components/Navbar/Navbar';
-import { SelectedCard } from '../../components/SelectedCard/SelectedCard';
-import { bookData } from '../../interface/bookData';
-import { AiOutlineSearch } from 'react-icons/ai';
 import { SearchBar } from '../../components/searchBar/SearchBar';
 
 
