@@ -4,10 +4,10 @@
     align-items: center;
     width: 1367px;
     height: 110px;
-    border-radius: 2px;
-    border: 1px solid rgb(173, 173, 173);
-   
-    margin: 5px 0px 2px 0px;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #fff;
     padding: 10px 10px 10px 10px;
     transition: 0.3s;
     cursor: pointer;
@@ -15,8 +15,6 @@
 
 .card:hover{
     background-color: rgb(243, 243, 243);
-    
-    
 }
 
 .card span{
@@ -46,8 +44,7 @@
     justify-content: center;
     align-items: center;
     width: 237px;
-    border-right: 1px solid rgb(209, 209, 209);
-    border-left: 1px solid rgb(209, 209, 209);
+    
 }
 
 .card-author{
@@ -55,7 +52,7 @@
     justify-content: center;
     align-items: center;
     width: 237px;
-    border-right: 1px solid rgb(209, 209, 209);
+    
 }
 
 .card-condition{
@@ -63,7 +60,7 @@
     justify-content: center;
     align-items: center;
     width: 261px;
-    border-right: 1px solid rgb(209, 209, 209);
+    
 }
 
 .card-category{
@@ -71,7 +68,7 @@
     justify-content: center;
     align-items: center;
     width: 250px;
-    border-right: 1px solid rgb(209, 209, 209);
+    
 }
 
 .card-price{
@@ -79,7 +76,7 @@
     justify-content: center;
     align-items: center;
     width: 112px;
-    border-right: 1px solid rgb(209, 209, 209);
+    
 }
 
 .card-quantity{
@@ -107,4 +104,51 @@
 .card #zeroQtd{
     font-size: 25px;
     color: rgb(255, 0, 0);
+}
+
+.card-options{
+    width: 1367px;
+    height: 20px;
+    background-color: #e9e9e9;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-options p{
+    margin: 0;
+}
+
+.del-btn{
+    background-color: rgb(197, 66, 66);
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.edit-btn{
+    background-color: rgb(255, 164, 28);
+    font-weight: bold;
+    margin: 0 10px 0 23.5px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.buy-btn{
+    background-color: #176B87;
+    font-weight: bold;
+    margin-right: 5px;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
 }

@@ -22,7 +22,7 @@ const Books = () => {
 
           <div className="books-properties-container">
             <span className="book-properties" id='cover-property'><p>Capa</p></span>
-            <span className="book-properties" id='title-property'><p>Titulo</p></span>
+            <span className="book-properties" id='title-property'><p>Título</p></span>
             <span className="book-properties" id='author-property'><p>Autor</p></span>
             <span className="book-properties" id='condition-property'><p>condição</p></span>
             <span className="book-properties" id='category-property'><p>Gênero</p></span>

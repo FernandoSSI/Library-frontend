@@ -1,14 +1,22 @@
+.body-container{
+    background-color: rgb(247, 247, 247);
+    height: 100vh;
+}
+
 .book-body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: rgb(247, 247, 247);
 }
 
 .books-properties-container{
     width: 92%;
     height: 30px;
-    background-color: rgb(233, 233, 233);
-    border: 1px solid rgb(190, 190, 190);
+    background-color: #176B87;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-top: 1px solid #053B50;
     margin-left: 100px;
     display: flex;
     align-items: center;
@@ -17,7 +25,7 @@
 .book-properties{
     height: 100%;
     border-right: 1px solid rgb(190, 190, 190);
-    color: rgb(126, 126, 126);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -30,6 +30,7 @@ export function OnlineCatalog() {
 
     return (
         <>
+        <div className='body-container'>
             <div className='catalog-container'>
                 <div className='catalog-title'>
                     <h1>Catálogo online</h1>
@@ -63,7 +64,7 @@ export function OnlineCatalog() {
                     
                 </div>
             </div>
-
+        </div>
 
         </>
     )

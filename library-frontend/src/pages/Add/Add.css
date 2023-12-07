@@ -1,19 +1,18 @@
 .add-title h1{
     color: #0b3844;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-top: -30px;
 }
 
-.add-overlay{
-    width: 100%;
-    height: 100%;
-    background-color: #0b3844;
-}
+
 
 .add-container{
     display: flex;
     width: 100%;
     height: 100vh;
     margin-left: 65px;
-    padding-left: 20px;
+    padding-left: 50px;
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
@@ -22,13 +21,24 @@
 }
 
 .input-container{
-    width: 90%;
-    background-color: #ffff;
-    border-radius: 20px;
-    height: 100vh;
+    width: 92%;
+    height: 100%;
+    border: 1px solid rgb(32, 32, 32);
+    border-radius: 10px;
+    background-color: #ffffff;
+    height: 85vh;
     box-sizing: border-box;
+    padding-left: 30px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0px 3px 18px -4px rgba(0,0,0,0.30);
+}
+
+.input-container input, .input-container select{
+    border: 1px solid #164863;
+    border-radius: 20px;
+    color: black;
 }
 
 
@@ -40,48 +50,67 @@
 }
 
 .span-add-title{
-    width: 50%;
-}
-
-.span-add-author{
-   width: 50%;
-   margin-left: -100px;
-}
-
-.span-add-condition{
-    width: 20%;
-    margin-top: -240px;
-}
-
-.span-add-price{
-    width: 20%;
-    margin-top: -240px;
+    width: 45%;
+    height: 100px;
+    border: none;
+    
     
 }
 
-.span-add-img{
-    width: 20%;
-    margin-top: -240px;
-    margin-left: 38px;
+.span-add-author{
+    width: 45%;
+   height: 100px;
+}
+
+.span-add-condition{
+    width: 22%;
+    height: 100px;
+    margin-left: -5px;
+    margin-right: 75px;
+    
 }
 
 .span-add-category{
-    width: 20%;
-    margin-top: -240px;
-    margin-left: 14px;
+    width: 45%;
+    height: 100px;
+    
 }
 
+.span-add-price{
+    width: 25%;
+    height: 100px;
+}
+
+.span-add-img{
+    width: 45%;
+    height: 100px;
+}
+
+
+
 .span-add-quantity{
-    width: 20%;
-    margin-top: -240px;
-    margin-left: 14px;
+    width: 25%;
+    height: 100px;
+}
+
+.span-add-btn{
+    width: 100%;
+    margin-bottom: -40px;
+    margin-left: 35px;
+
+}
+
+.input-container section{
+    display: flex;
+    width: 95%;
+    justify-content: flex-start;
+    
 }
 
 
 .input-container  select{
     background-color: #fff;
     outline: none;
-    border: 1px solid #6ba5d8;
     color: black;
     width: 100%;
     height: 30px;
@@ -93,10 +122,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 80%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
 }
@@ -106,10 +133,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 80%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
 }
@@ -119,10 +144,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 95%;
+    width: 81.5%;
     height: 50px;
     font-size: 20px;
 }
@@ -136,10 +159,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 95%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
 } 
@@ -149,10 +170,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 200%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
 }
@@ -163,10 +182,8 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 95%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
 }
@@ -177,36 +194,10 @@
     box-sizing: border-box;
     outline: none;
     padding: 10px;
-    border: 1px solid rgb(107, 165, 216);
-    border-radius: 20px;
     color: black;
-    width: 95%;
+    width: 90%;
     height: 50px;
     font-size: 20px;
-}
-
-.section1-add{
-    width: 100%;
-    height: 250px;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.section2-add{
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    
-}
-
-.section3-add{
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 .btn-submit{
@@ -218,7 +209,7 @@
     border-radius: 30px;
     font-size: 20px;
     cursor: pointer;
-    margin-top: -150px;
+
     
 }
 

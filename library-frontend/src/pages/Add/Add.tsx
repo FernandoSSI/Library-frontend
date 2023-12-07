@@ -74,64 +74,53 @@ const Add = () => {
 
     return (
         <>
-            <div className='add-overlay'>
-                <div className='add-container'>
-                    <div className="add-title"><h1>Adicionar ao acervo</h1></div>
+            <div className='add-container'>
+                <div className="add-title"><h1>Adicionar ao acervo</h1></div>
 
-                    <form className="input-container">
+                <form className="input-container">
+                    <span className='span-add-title'>
+                        <p>Título</p>
+                        <Input id="input-title" value={title} type='text' updateValue={setTitle} placeholder="Digite o título do livro" />
+                    </span>
 
-                        <div className='section1-add'>
-                            <span className='span-add-title'>
-                                <p>Título</p>
-                                <Input id="input-title" value={title} type='text' updateValue={setTitle} placeholder="Digite o título do livro" />
-                            </span>
-
-                            <span className='span-add-author'>
-                                <p>Autor(a)</p>
-                                <Input id="input-author" value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do livro" />
-                            </span>
-                        </div>
-
-                        <div className='section2-add'>
-                            <span className='span-add-condition'>
-                                <p>Estado</p>
-                                <Select id="input-condition" value={condition} updateValue={setCondition} />
-                            </span>
-
-                            <span className='span-add-category'>
-                                <p>Categoria</p>
-                                <Input id="input-category" value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro" />
-                            </span>
-
-                            <span className='span-add-img'>
-                                <p>Url da imagem</p>
-                                <Input id="input-img" value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem " />
-                            </span>
+                    <span className='span-add-author'>
+                        <p>Autor(a)</p>
+                        <Input id="input-author" value={author} type='text' updateValue={setAuthor} placeholder="Digite o(a) autor(a) do livro" />
+                    </span>
 
 
+                    <span className='span-add-category'>
+                        <p>Categoria</p>
+                        <Input id="input-category" value={category} type='text' updateValue={setCategory} placeholder="Digite a categoria do livro" />
+                    </span>
 
+                    <span className='span-add-img'>
+                        <p>Url da imagem</p>
+                        <Input id="input-img" value={imgUrl} type='text' updateValue={setImgUrl} placeholder="Cole a Url da imagem " />
+                    </span>
 
-                        </div>
-
-                        <div className='section3-add'>
-                            <span className='span-add-price'>
-                                <p>Preço</p>
-                                <Input id="input-price" value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do livro" />
-                            </span>
-
-
-                            <span className='span-add-quantity'>
-                                <p>Quantidade</p>
-                                <Input id="input-quantity" value={quantity} type='number' updateValue={setQuantity} placeholder="Digite a categoria do livro" />
-                            </span>
-                        </div>
-
+                    <section>
+                        <span className='span-add-quantity'>
+                            <p>Quantidade</p>
+                            <Input id="input-quantity" value={quantity} type='number' updateValue={setQuantity} placeholder="Digite a categoria do livro" />
+                        </span>
+                        <span className='span-add-condition'>
+                            <p>Estado</p>
+                            <Select id="input-condition" value={condition} updateValue={setCondition} />
+                        </span>
+                        <span className='span-add-price'>
+                            <p>Preço</p>
+                            <Input id="input-price" value={price} type='number' updateValue={setPrice} placeholder="Digite o preço do livro" />
+                        </span>
+                    </section>
+                    <span className='span-add-btn'>
                         <button onClick={submit} className='btn-submit'>
                             Adicionar
                         </button>
-                    </form>
-                </div>
+                    </span>
+                </form>
             </div>
+
         </>
     )
 }
