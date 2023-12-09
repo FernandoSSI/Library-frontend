@@ -23,14 +23,20 @@ export function Clients() {
                         <span className="client-properties" id='street-property'><p>Rua</p></span>
                         <span className="client-properties" id='hn-property'><p>Número</p></span>
                     </div>
-                    {data && data.map(clientData => <ClientCard
-                        id={clientData.id}
-                        name={clientData.name}
-                        number={clientData.number}
-                        city={clientData.city}
-                        nbh={clientData.nbh}
-                        street={clientData.street}
-                        hn={clientData.hn} />)}
+                    {data && data.map(clientData => {
+
+                        if(clientData.name.toLowerCase().includes(search.toLowerCase()))
+                        return (<ClientCard
+                            id={clientData.id}
+                            name={clientData.name}
+                            number={clientData.number}
+                            city={clientData.city}
+                            nbh={clientData.nbh}
+                            street={clientData.street}
+                            hn={clientData.hn} />)
+                    }
+                    )
+                    }
 
                 </div>
             </div>

@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-client-properties{
+.client-properties{
     height: 100%;
     border-right: 1px solid rgb(190, 190, 190);
     color: #fff;
@@ -28,7 +28,6 @@ client-properties{
     justify-content: center;
     align-items: center;
 }
-
 
 #name-property{
     padding: 0 109px;
@@ -52,8 +51,4 @@ client-properties{
 
 #hn-property{
     padding: 0 18px;
-}
-
-#condition-property{
-    padding: 0 100px;
 }
