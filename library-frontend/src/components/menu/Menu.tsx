@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Menu.css"
-import { SlMenu, SlBookOpen, SlGlobe, SlPeople , SlList, SlWallet, SlNote  } from "react-icons/sl";
+import { SlMenu, SlBookOpen, SlGlobe, SlPeople , SlList, SlWallet, SlNote, SlUserFollow} from "react-icons/sl";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -49,8 +49,8 @@ export function Menu() {
                             </Link>
                         </li>
 
-                        <li className={activeLink === 'http://localhost:5173/add' ? 'active menu-item' : 'menu-item'} >
-                            <Link to={"/add"}>
+                        <li className={activeLink === 'http://localhost:5173/addbooks' ? 'active menu-item' : 'menu-item'} >
+                            <Link to={"/addbooks"}>
                                 <span className="menu-icon"><SlNote  /></span>
                                 <span className="txt-link">Adicionar ao acervo</span>
                             </Link>
@@ -71,6 +71,13 @@ export function Menu() {
                             </Link>
                         </li>
 
+                        <li className={activeLink === 'http://localhost:5173/addclients' ? 'active menu-item' : 'menu-item'}>
+                            <Link to={"/addclients"} onClick={()=>handleLinkClick("/addclients")}>
+                                <span className="menu-icon"><SlUserFollow /></span>
+                                <span className="txt-link">Adicionar cliente</span>
+                            </Link>
+                        </li>
+
                         <li className={activeLink === '/requests' ? 'active menu-item' : 'menu-item'}>
                             <Link to={"/requests"} onClick={()=>handleLinkClick("/requests")}>
                                 <span className="menu-icon"><SlList /></span>
@@ -83,7 +90,9 @@ export function Menu() {
                                 <span className="menu-icon"><SlWallet /></span>
                                 <span className="txt-link">Caixa</span>
                             </Link>
-                        </li>
+                        </li> 
+
+                        
                     </ul>
                 </nav>
             </div>

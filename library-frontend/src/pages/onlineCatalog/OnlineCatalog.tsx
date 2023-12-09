@@ -37,7 +37,7 @@ export function OnlineCatalog() {
                 </div>
                 
                 <div className='search-bar catalog-searchbar'>
-                    <input type="search" name="online-search" id="bar" placeholder='busque por livros' onChange={(e: any) => {setSearch(e.target.value)}} onKeyDown={handleSearch}/>
+                    <input type="search" name="online-search" id="bar" placeholder='busque por livros e adicione-os!' onChange={(e: any) => {setSearch(e.target.value)}} onKeyDown={handleSearch}/>
                     <button type="submit" id='search-btn' onClick={ ()=>searchBook()}><SlMagnifier /></button>
                 </div>
 

@@ -54,7 +54,7 @@
     font-weight: 400;
 }
 
-.span-add-title {
+.span-add-name {
     width: 45%;
     height: 100px;
     border: none;
@@ -62,43 +62,36 @@
 
 }
 
-.span-add-author {
+.span-add-number {
     width: 45%;
     height: 100px;
     margin-left: -190px;
 }
 
-.span-add-condition {
-    width: 22%;
-    height: 100px;
-    margin-left: 2px;
-    margin-right: 75px;
-
-}
-
-.span-add-category {
+.span-add-city {
     width: 45%;
     height: 100px;
+    border: none;
 
 }
 
-.span-add-price {
-    width: 25%;
-    height: 100px;
-    margin-left: -94px;
-}
-
-.span-add-img {
+.span-add-nbh {
     width: 45%;
     height: 100px;
     margin-left: -190px;
+
 }
 
-
-
-.span-add-quantity {
-    width: 25%;
+.span-add-street {
+    width: 45%;
     height: 100px;
+    border: none;
+}
+
+.span-add-hn {
+    width: 45%;
+    height: 100px;
+    margin-left: -190px;
 }
 
 .span-add-btn {
@@ -116,12 +109,12 @@
 
 }
 
-#input-title,
-#input-author,
-#input-price,
-#input-img,
-#input-category,
-#input-quantity {
+#input-name,
+#input-number,
+#input-city,
+#input-nbh,
+#input-street,
+#input-hn {
     width: 90%;
 }
 

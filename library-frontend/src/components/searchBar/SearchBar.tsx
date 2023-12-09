@@ -15,7 +15,7 @@ export function SearchBar({onchange, placeholder}: SearchBarProps) {
             <div className="search-bar">
                 {onchange && <>
                 <div className="add-button">
-                    <Link to={"/add"}><GoPlus/></Link>
+                    <Link to={"/addbooks"}><GoPlus/></Link>
                 </div>
                 <input type="search" name="search-bar" id="bar" onChange={onchange} placeholder={placeholder} />
                 </>}
