@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Add.css'
+import './AddBooks.css'
 import { useBookDataMutate } from '../../hooks/useBookData/useBookDataPost';
 import { bookData } from '../../interface/bookData';
 
@@ -44,7 +44,7 @@ const Select = ({ value, updateValue, id }: selectProps) => {
 
 
 
-const Add = () => {
+const AddBooks = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [price, setPrice] = useState(0);
@@ -125,4 +125,4 @@ const Add = () => {
     )
 }
 
-export default Add
+export default AddBooks

@@ -10,6 +10,10 @@
     background-color: rgb(247, 247, 247);
 }
 
+.books-searchbar{
+    margin-left: 100px;
+}
+
 .books-properties-container{
     width: 92%;
     height: 30px;
@@ -81,7 +85,7 @@
 }
 
 .books-title h1{
-    color: rgb(31, 75, 92);
+    color: #0b3844;
 }
 
 .search>h1 {

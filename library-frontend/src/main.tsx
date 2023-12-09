@@ -5,9 +5,10 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './pages/home/App'
-import Add from './pages/Add/Add'
+import AddBooks from './pages/AddBooks/AddBooks'
 import Books from './pages/Books/Books'
 import { OnlineCatalog } from './pages/onlineCatalog/OnlineCatalog'
+import { Clients } from './pages/clients/Clients'
 
 const queryClient = new QueryClient()
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/add",
-        element: <Add />
+        element: <AddBooks />
       },
       {
         path: "/books",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/onlinecatalog",
         element: <OnlineCatalog/>
+      },
+      {
+        path: "/clients",
+        element: <Clients/>
       }
     ]
   },

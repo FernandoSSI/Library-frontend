@@ -17,7 +17,9 @@ const Books = () => {
     <>
       <div className='body-container'>
         <div className='books-title'> <h1>Acervo</h1></div>
-        <SearchBar onchange={(e: any) => setSearch(e.target.value)}/>
+        <div className='books-searchbar'>
+        <SearchBar onchange={(e: any) => setSearch(e.target.value)} placeholder={"Busque por título, autor ou categoria!"}/>
+        </div>
         <div className='book-body'>
 
           <div className="books-properties-container">

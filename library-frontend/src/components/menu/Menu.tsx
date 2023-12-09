@@ -64,8 +64,8 @@ export function Menu() {
                             </Link>
                         </li>
 
-                        <li className={activeLink === '/clients' ? 'active menu-item' : 'menu-item'}>
-                            <Link to={"/clients"} onClick={()=>handleLinkClick("/clients")}>
+                        <li className={activeLink === 'http://localhost:5173/clients' ? 'active menu-item' : 'menu-item'}>
+                            <Link to={"/clients"}>
                                 <span className="menu-icon"><SlPeople  /></span>
                                 <span className="txt-link">Clientes</span>
                             </Link>

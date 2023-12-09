@@ -1,0 +1,59 @@
+.clients-container{
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.clients-container > h1{
+    color: #0b3844;
+}
+
+
+.clients-properties-container{
+    width: 1385px;
+    height: 30px;
+    background-color: #176B87;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-top: 1px solid #053B50;
+    display: flex;
+    align-items: center;
+}
+
+client-properties{
+    height: 100%;
+    border-right: 1px solid rgb(190, 190, 190);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#name-property{
+    padding: 0 109px;
+} 
+
+#number-property{
+    padding: 0 78px;
+}
+
+#city-property{
+    padding: 0 108px;
+}
+
+#nbh-property{
+    padding: 0 85px;
+}
+
+#street-property{
+    padding: 0 115px;
+}
+
+#hn-property{
+    padding: 0 18px;
+}
+
+#condition-property{
+    padding: 0 100px;
+}

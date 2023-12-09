@@ -15,7 +15,11 @@
 }
 
 .catalog-title h1{
-    color: rgb(31, 75, 92);
+    color: #0b3844;
+}
+
+.catalog-searchbar{
+    margin-left: 100px;
 }
 
 #search-btn{
