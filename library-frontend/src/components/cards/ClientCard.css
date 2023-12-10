@@ -61,3 +61,22 @@
     width: 100px;
 }
 
+.delClient-btn{
+    background-color: rgb(197, 66, 66);
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.editClient-btn{
+    background-color: rgb(255, 164, 28);
+    font-weight: bold;
+    margin: 0 10px 0 23.5px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}

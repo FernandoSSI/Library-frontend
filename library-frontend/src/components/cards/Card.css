@@ -6,7 +6,8 @@
     height: 110px;
     border-bottom: 1px solid #eeeeee;
     background-color: #fff;
-    margin-top: 7px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0px 3px 18px -4px rgba(0, 0, 0, 0.144);
     transition: 0.3s;
