@@ -7,4 +7,5 @@ export interface bookData{
     category: string;
     imgUrl: string;
     quantity: number;
+    content: any;
 }

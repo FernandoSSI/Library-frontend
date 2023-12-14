@@ -15,7 +15,7 @@
 }
 
 .books-properties-container{
-    width: 92%;
+    width: 1384px;
     height: 30px;
     background-color: #176B87;
     border-right: 1px solid #053B50;
@@ -90,4 +90,45 @@
 
 .search>h1 {
     margin: 0 20px 0 20px; 
+}
+
+.search-bar{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.search-bar > #bar{
+    background-color: #fff;
+    color: rgb(71, 71, 71);
+    width: 450px;
+    height: 50px;
+    padding-left: 20px;
+    border-radius: 25px;
+    border: 1px solid rgb(122, 168, 168);
+    outline: none;
+    margin: 0 0 0 0;
+    font-size: 20px;
+}
+
+.search-bar .add-button{
+    background-color: rgb(61, 134, 182);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar .add-button a{
+    text-decoration: none;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 5px;
+    
 }
