@@ -1,0 +1,11 @@
+.pagination-container{
+    margin-left: 100px;
+}
+
+.pagination-container ul{
+    display: flex;
+}
+
+.pagination-container li{
+    list-style: none;
+}

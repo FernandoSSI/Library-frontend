@@ -24,6 +24,6 @@ export function useBookData(text: string, page: number) {
 
     return {
         ...query,
-        data: query.data?.data.content
+        data: query.data?.data
     }
 }

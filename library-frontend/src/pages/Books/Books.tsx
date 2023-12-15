@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 import { Card } from '../../components/cards/Card';
 import { useBookData } from '../../hooks/useBookData/useBookDataGet';
 import './Books.css'
-import { SearchBar } from '../../components/searchBar/SearchBar';
-import { bookData } from '../../interface/bookData';
 import { Link } from 'react-router-dom';
 import { GoPlus } from 'react-icons/go';
-import { SlMagnifier } from 'react-icons/sl';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 
 
@@ -15,6 +13,11 @@ const Books = () => {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
   const { data } = useBookData(search, page)
+  const [totalPages, setTotalPages]= useState(data?.totalPages)
+
+  useEffect(()=>{
+    setTotalPages(data?.totalPages)
+  }, [data])
 
   return (
     <>
@@ -47,7 +50,7 @@ const Books = () => {
           </div>
           <div className='card-grid'>
 
-            {data?.map(bookData => {
+            {data?.content.map(bookData => {
               return (
                 <Card
                   id={bookData.id}
@@ -62,6 +65,8 @@ const Books = () => {
             })}
           </div>
         </div>
+        <Pagination totalPages={totalPages} currentPage={1} changePage={1}/>    
+
       </div>
     </>
   )
