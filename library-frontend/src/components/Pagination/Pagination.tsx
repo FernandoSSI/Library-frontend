@@ -1,26 +1,45 @@
+import { useState } from 'react'
 import './Pagination.css'
 
 interface PaginationProps {
     totalPages: any,
-    currentPage: number|undefined,
-    changePage: any
+    changePage: any,
+    currentPage: number
 }
 
-export function Pagination({ totalPages, currentPage, changePage }: PaginationProps) {
+export function Pagination({ totalPages, changePage, currentPage }: PaginationProps) {
     const pageNumber = []
     for (let i = 1; i <= totalPages; i++) {
         pageNumber.push(i)
     }
 
+    const [active, setActive] = useState("")
 
     return (
         <>
             <div className='pagination-container'>
                 <ul>
-                    {pageNumber.map(e =>
-                        <li className='page'>
-                            <p>{e}</p>
-                        </li>)}
+                    {pageNumber.map(e => {
+
+                        if (e != currentPage) {
+                            return (
+                                <a href='#books-title'>
+                                    <li className='page' onClick={() => changePage(e)}>
+                                        {e}
+                                    </li>
+                                </a>
+                            )
+                        } else {
+                            return (
+                                <a href='#books-title'>
+                                    <li className='active-page' onClick={() => changePage(e)}>
+                                        {e}
+                                    </li>
+                                </a>
+                                )
+                        }
+                    })
+                    }
                 </ul>
             </div>
 

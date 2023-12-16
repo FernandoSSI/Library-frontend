@@ -19,10 +19,14 @@ const Books = () => {
     setTotalPages(data?.totalPages)
   }, [data])
 
+  const handlePage =(e:number)=>{
+    setPage(e-1);
+  }
+
   return (
     <>
-      <div className='body-container'>
-        <div className='books-title'> <h1>Acervo</h1></div>
+      <div className='book-body-container'>
+        <div className='books-title' id='books-title'> <h1>Acervo</h1></div>
         <div className='books-searchbar'>
           <div className="search-bar">
 
@@ -65,8 +69,7 @@ const Books = () => {
             })}
           </div>
         </div>
-        <Pagination totalPages={totalPages} currentPage={1} changePage={1}/>    
-
+        <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page+1}/>    
       </div>
     </>
   )
