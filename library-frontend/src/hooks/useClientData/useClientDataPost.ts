@@ -1,5 +1,4 @@
 import axios, {AxiosPromise} from "axios"
-import { bookData } from "../../interface/bookData"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { clientData } from "../../interface/clientData"
 

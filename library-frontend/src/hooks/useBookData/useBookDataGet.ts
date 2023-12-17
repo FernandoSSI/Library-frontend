@@ -1,12 +1,11 @@
 import axios, { AxiosPromise } from "axios"
-import { bookData } from "../../interface/bookData"
 import { useQuery } from "@tanstack/react-query"
-import { apiResponse } from "../../interface/apiResponde"
+import { apiResponseBook } from "../../interface/apiResponde"
 import { useEffect } from "react"
 
 const API_URL = "http://localhost:8080/books/search?"
 
-const fetchData = async (text: string, page: number): AxiosPromise<apiResponse> => {
+const fetchData = async (text: string, page: number): AxiosPromise<apiResponseBook> => {
     const response = axios.get(API_URL + `text=${text}&page=${page}&size=10`)
     return response
 }

@@ -1,15 +1,26 @@
 import { ClientCard } from '../../components/cards/ClientCard'
 import { SearchBar } from '../../components/searchBar/SearchBar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Clients.css'
 import { useClientDataGet } from '../../hooks/useClientData/useClientDataGet'
 import { GoPlus } from 'react-icons/go'
 import { Link } from 'react-router-dom'
+import { Pagination } from '../../components/Pagination/Pagination'
 
 
 export function Clients() {
     const [search, setSearch] = useState("")
-    const { data } = useClientDataGet();
+    const [page, setPage] = useState(0)
+    const { data } = useClientDataGet(search, page)
+    const [totalPages, setTotalPages]= useState(data?.totalPages)
+
+    useEffect(()=>{
+      setTotalPages(data?.totalPages)
+    }, [data])
+  
+    const handlePage =(e:number)=>{
+      setPage(e-1);
+    }
 
     return (
         <>
@@ -30,22 +41,20 @@ export function Clients() {
                         <span className="client-properties" id='street-property'><p>Rua</p></span>
                         <span className="client-properties" id='hn-property'><p>Número</p></span>
                     </div>
-                    {data && data.map(clientData => {
-
-                        if (clientData.name.toLowerCase().includes(search.toLowerCase()))
-                            return (<ClientCard
-                                id={clientData.id}
-                                name={clientData.name}
-                                number={clientData.number}
-                                city={clientData.city}
-                                nbh={clientData.nbh}
-                                street={clientData.street}
-                                hn={clientData.hn} />)
-                    }
-                    )
+                    {data?.content.map(clientData => {
+                        return (<ClientCard
+                            id={clientData.id}
+                            name={clientData.name}
+                            number={clientData.number}
+                            city={clientData.city}
+                            nbh={clientData.nbh}
+                            street={clientData.street}
+                            hn={clientData.hn} />)
+                        })
                     }
 
                 </div>
+                <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page+1}/> 
             </div>
         </>
     )

@@ -108,7 +108,7 @@ export function EditClient({ close, idProp, nameProp, numberProp, cityProp, nbhP
 
 
                         <h3>Bairro</h3>
-                        <Input value={nbh} type='number' updateValue={setNbh} placeholder="Digite o bairro do cliente" />
+                        <Input value={nbh} type='text' updateValue={setNbh} placeholder="Digite o bairro do cliente" />
 
                         <h3>Rua</h3>
                         <Input value={street} type='text' updateValue={setStreet} placeholder="Digite a rua do cliente" />
