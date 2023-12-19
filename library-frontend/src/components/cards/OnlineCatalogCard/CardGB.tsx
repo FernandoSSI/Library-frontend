@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './CardGB.css'
-import { SelectedCardGB } from '../SelectedCard/SelectedCardGB'
+import { SelectedCardGB } from '../../SelectedCard/SelectedCardGB'
 
 
 interface CardGBProps{

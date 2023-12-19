@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './OnlineCatalog.css'
 import { SlMagnifier } from "react-icons/sl";
-import { CardGB } from '../../components/cards/CardGB';
+import { CardGB } from '../../components/cards/OnlineCatalogCard/CardGB';
 import axios from 'axios';
 
 export function OnlineCatalog() {

@@ -10,6 +10,7 @@ import Books from './pages/Books/Books'
 import { OnlineCatalog } from './pages/onlineCatalog/OnlineCatalog'
 import { Clients } from './pages/clients/Clients'
 import AddClients from './pages/AddClients/AddClients'
+import { Orders } from './pages/Orders/Orders'
 
 const queryClient = new QueryClient()
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/addclients",
         element: <AddClients/>
+      },
+      {
+        path: "/orders",
+        element: <Orders/>
       }
     ]
   },

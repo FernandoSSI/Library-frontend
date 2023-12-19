@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import "./card.css"
-import { useBookDataDelete } from '../../hooks/useBookData/useBookDataDelete'
-import { EditCard } from '../editCard/EditCard'
+import { useBookDataDelete } from '../../../hooks/useBookData/useBookDataDelete'
+import { EditCard } from '../../editCard/EditCard'
 
 interface CardProps {
     id: string,

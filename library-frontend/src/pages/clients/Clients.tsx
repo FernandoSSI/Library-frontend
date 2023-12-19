@@ -1,4 +1,4 @@
-import { ClientCard } from '../../components/cards/ClientCard'
+import { ClientCard } from '../../components/cards/ClientCard/ClientCard'
 import { SearchBar } from '../../components/searchBar/SearchBar'
 import { useEffect, useState } from 'react'
 import './Clients.css'

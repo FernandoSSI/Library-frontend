@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './ClientCard.css'
-import { useClientDataDelete } from '../../hooks/useClientData/useClientDataDelete';
-import { EditCard } from '../editCard/EditCard';
-import { EditClient } from '../editCard/EditClient';
+import { useClientDataDelete } from '../../../hooks/useClientData/useClientDataDelete';
+import { EditCard } from '../../editCard/EditCard';
+import { EditClient } from '../../editCard/EditClient';
 
 export interface ClientCardProps{
     id?: any;

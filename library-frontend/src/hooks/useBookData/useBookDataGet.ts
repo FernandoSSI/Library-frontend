@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from "axios"
 import { useQuery } from "@tanstack/react-query"
-import { apiResponseBook } from "../../interface/apiResponde"
+import { apiResponseBook } from "../../interface/apiResponse"
 import { useEffect } from "react"
 
 const API_URL = "http://localhost:8080/books/search?"

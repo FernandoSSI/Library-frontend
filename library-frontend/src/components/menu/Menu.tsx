@@ -78,8 +78,8 @@ export function Menu() {
                             </Link>
                         </li>
 
-                        <li className={activeLink === '/requests' ? 'active menu-item' : 'menu-item'}>
-                            <Link to={"/requests"} onClick={()=>handleLinkClick("/requests")}>
+                        <li className={activeLink === '/orders' ? 'active menu-item' : 'menu-item'}>
+                            <Link to={"/orders"} onClick={()=>handleLinkClick("/orders")}>
                                 <span className="menu-icon"><SlList /></span>
                                 <span className="txt-link">Pedidos</span>
                             </Link>

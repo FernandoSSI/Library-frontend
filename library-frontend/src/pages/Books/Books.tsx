@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card } from '../../components/cards/Card';
+import { Card } from '../../components/cards/BookCard/Card';
 import { useBookData } from '../../hooks/useBookData/useBookDataGet';
 import './Books.css'
 import { Link } from 'react-router-dom';
