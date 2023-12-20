@@ -1,7 +1,19 @@
+.body-container-orders{
+    background-color: rgb(247, 247, 247);
+    height: 100vh;
+}
+
 .orders-container{
     margin-left: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .orders-title > h1{
     color: #0b3844;
+}
+
+.card-grid-order{
+    display: flex;
+    flex-direction: column;
 }

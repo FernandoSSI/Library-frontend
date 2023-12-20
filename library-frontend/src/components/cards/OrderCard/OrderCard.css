@@ -1,0 +1,46 @@
+.order-card-container{
+    display: flex;
+    align-items: center;
+    width: 1367px;
+    height: 80px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 3.5px 0;
+    box-shadow: 0px 3px 18px -4px rgba(0, 0, 0, 0.144);
+}
+
+.cardO-date{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardO-name{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardO-number{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardO-books{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardO-books p{
+    margin: 0;
+}
+
+.cardO-price{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
