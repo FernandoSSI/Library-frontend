@@ -1,30 +1,39 @@
 import { bookDTO } from "../../../interface/bookDTO";
 import "./OrderCard.css"
 
-interface OrderCardProps{
-    id?:any;
+interface OrderCardProps {
+    id?: any;
     date: string;
-    client:{
-        id?:any;
-        name:string;
-        number:number;
+    client: {
+        id?: any;
+        name: string;
+        number: number;
     };
     books: bookDTO[];
-    totalPrice:number;
+    totalPrice: number;
 }
 
-export function OrderCard({date,  client, books, totalPrice}:OrderCardProps){
+export function OrderCard({ date, client, books, totalPrice }: OrderCardProps) {
 
-    return(
+    return (
         <>
+            <div className="orders-properties-container">
+                <span className="order-properties" id='dateOrder-property'><p>data</p></span>
+                <span className="order-properties" id='nameOrder-property'><p>nome</p></span>
+                <span className="order-properties" id='numberOrder-property'><p>número</p></span>
+                <span className="order-properties" id='booksOrder-property'><p>livros</p></span>
+                <span className="order-properties" id='valueOrder-property'><p>valor total</p></span>
+                <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
+            </div>
             <div className="order-card-container">
                 <span className="cardO-date"><p>{date}</p></span>
                 <span className="cardO-name"><p>{client.name}</p></span>
                 <span className="cardO-number"><p>{client.number}</p></span>
                 <span className="cardO-books">
-                        {books.map(e=> <p>{e.title}</p>)}
+                    {books.map(e => <p>{e.title}</p>)}
                 </span>
                 <span className="cardO-price"><p>R$ {totalPrice}</p></span>
+                <span className="cardO-state"><p> Estado</p></span>
             </div>
         </>
     )

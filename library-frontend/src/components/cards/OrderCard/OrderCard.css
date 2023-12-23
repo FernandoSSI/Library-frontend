@@ -9,30 +9,85 @@
     box-shadow: 0px 3px 18px -4px rgba(0, 0, 0, 0.144);
 }
 
+.orders-properties-container{
+    width: 1385px;
+    height: 30px;
+    background-color: #176B87;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-top: 1px solid #053B50;
+    display: flex;
+    align-items: center;
+}
+
+.order-properties{
+    height: 100%;
+    border-right: 1px solid rgb(190, 190, 190);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dateOrder-property{
+    padding: 0 60px;
+} 
+
+#nameOrder-property{
+    padding: 0 123px;
+}
+
+#numberOrder-property{
+    padding: 0 78px;
+}
+
+#booksOrder-property{
+    padding: 0 125px;
+}
+
+#valueOrder-property{
+    padding: 0 48px;
+}
+
+#paymentOrder-property{
+    padding: 0 80px;
+    border-right: none;
+}
+
+
+.order-card-container p{
+    font-weight: 400;
+}
+
 .cardO-date{
-    width: 200px;
+    width: 130px;
     display: flex;
     justify-content: center;
 }
 
 .cardO-name{
-    width: 400px;
+    width: 300px;
     display: flex;
     justify-content: center;
 }
 
 .cardO-number{
-    width: 400px;
+    width: 200px;
     display: flex;
     justify-content: center;
 }
 
 .cardO-books{
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+.cardO-state{
+    width: 250px;
+    display: flex;
+    justify-content: center;
 }
 
 .cardO-books p{
@@ -40,7 +95,7 @@
 }
 
 .cardO-price{
-    width: 200px;
+    width: 150px;
     display: flex;
     justify-content: center;
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './ClientCard.css'
 import { useClientDataDelete } from '../../../hooks/useClientData/useClientDataDelete';
-import { EditCard } from '../../editCard/EditCard';
 import { EditClient } from '../../editCard/EditClient';
 
 export interface ClientCardProps{
@@ -53,8 +52,8 @@ export function ClientCard({id, name, number, city, nbh, street, hn}:ClientCardP
                 
                 {selected && 
                     <div className='card-options'>
-                        <button className='editClient-btn' onClick={openEdit}>Editar informações</button>
-                        <button className='delClient-btn' onClick={del}>Excluir cliente</button>
+                        <button className='editClient-btn' onClick={openEdit}>Editar</button>
+                        <button className='delClient-btn' onClick={del}>Excluir</button>
                     </div>
                 }
             </div>

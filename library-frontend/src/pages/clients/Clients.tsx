@@ -11,12 +11,12 @@ import { Pagination } from '../../components/Pagination/Pagination'
 export function Clients() {
     const [search, setSearch] = useState("")
     const [page, setPage] = useState(0)
-    const { data } = useClientDataGet(search, page)
-    const [totalPages, setTotalPages]= useState(data?.totalPages)
+    const { dataClient } = useClientDataGet(search, page)
+    const [totalPages, setTotalPages]= useState(dataClient?.totalPages)
 
     useEffect(()=>{
-      setTotalPages(data?.totalPages)
-    }, [data])
+      setTotalPages(dataClient?.totalPages)
+    }, [dataClient])
   
     const handlePage =(e:number)=>{
       setPage(e-1);
@@ -24,7 +24,7 @@ export function Clients() {
 
     return (
         <>
-            <div className='body-container'>
+            <div className='body-container-clients'>
                 <div className="clients-container">
                     <h1>Clientes</h1>
                     <div className="search-bar">
@@ -41,7 +41,7 @@ export function Clients() {
                         <span className="client-properties" id='street-property'><p>Rua</p></span>
                         <span className="client-properties" id='hn-property'><p>Número</p></span>
                     </div>
-                    {data?.content.map(clientData => {
+                    {dataClient?.content.map(clientData => {
                         return (<ClientCard
                             id={clientData.id}
                             name={clientData.name}

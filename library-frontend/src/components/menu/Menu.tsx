@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Menu.css"
 import { SlMenu, SlBookOpen, SlGlobe, SlPeople , SlList, SlWallet, SlNote, SlUserFollow} from "react-icons/sl";
+import { MdFormatListBulletedAdd } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -81,6 +82,13 @@ export function Menu() {
                         <li className={activeLink === '/orders' ? 'active menu-item' : 'menu-item'}>
                             <Link to={"/orders"} onClick={()=>handleLinkClick("/orders")}>
                                 <span className="menu-icon"><SlList /></span>
+                                <span className="txt-link">Pedidos</span>
+                            </Link>
+                        </li>
+
+                        <li className={activeLink === '/addorders' ? 'active menu-item' : 'menu-item'}>
+                            <Link to={"/addorders"} onClick={()=>handleLinkClick("/addorders")}>
+                                <span className="menu-icon"><MdFormatListBulletedAdd /></span>
                                 <span className="txt-link">Pedidos</span>
                             </Link>
                         </li>

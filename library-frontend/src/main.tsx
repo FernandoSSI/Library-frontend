@@ -11,6 +11,7 @@ import { OnlineCatalog } from './pages/onlineCatalog/OnlineCatalog'
 import { Clients } from './pages/clients/Clients'
 import AddClients from './pages/AddClients/AddClients'
 import { Orders } from './pages/Orders/Orders'
+import { AddOrders } from './pages/AddOrders/AddOrders'
 
 const queryClient = new QueryClient()
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <Orders/>
+      },
+      {
+        path: "/addorders",
+        element: <AddOrders/>
       }
     ]
   },

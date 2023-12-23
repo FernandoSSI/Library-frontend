@@ -12,12 +12,12 @@ const Books = () => {
 
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
-  const { data } = useBookData(search, page)
-  const [totalPages, setTotalPages]= useState(data?.totalPages)
+  const { dataBook } = useBookData(search, page)
+  const [totalPages, setTotalPages]= useState(dataBook?.totalPages)
 
   useEffect(()=>{
-    setTotalPages(data?.totalPages)
-  }, [data])
+    setTotalPages(dataBook?.totalPages)
+  }, [dataBook])
 
   const handlePage =(e:number)=>{
     setPage(e-1);
@@ -54,7 +54,7 @@ const Books = () => {
           </div>
           <div className='card-grid'>
 
-            {data?.content.map(bookData => {
+            {dataBook?.content.map(bookData => {
               return (
                 <Card
                   id={bookData.id}

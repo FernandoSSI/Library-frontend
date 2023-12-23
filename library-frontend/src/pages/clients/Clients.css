@@ -1,3 +1,7 @@
+.body-container-clients{
+    background-color: rgb(247, 247, 247);
+}
+
 .clients-container{
     margin-left: 100px;
     display: flex;
