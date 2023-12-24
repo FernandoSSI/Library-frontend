@@ -17,3 +17,48 @@
     display: flex;
     flex-direction: column;
 }
+
+.orders-properties-container{
+    width: 1385px;
+    height: 30px;
+    background-color: #176B87;
+    border-right: 1px solid #053B50;
+    border-left: 1px solid #053B50;
+    border-top: 1px solid #053B50;
+    display: flex;
+    align-items: center;
+}
+
+.order-properties{
+    height: 100%;
+    border-right: 1px solid rgb(190, 190, 190);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dateOrder-property{
+    padding: 0 60px;
+} 
+
+#nameOrder-property{
+    padding: 0 123px;
+}
+
+#numberOrder-property{
+    padding: 0 78px;
+}
+
+#booksOrder-property{
+    padding: 0 125px;
+}
+
+#valueOrder-property{
+    padding: 0 48px;
+}
+
+#paymentOrder-property{
+    padding: 0 80px;
+    border-right: none;
+}

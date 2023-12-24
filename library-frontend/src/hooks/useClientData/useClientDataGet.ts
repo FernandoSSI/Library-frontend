@@ -24,12 +24,11 @@ export function useClientDataGet(text: string, page: number, size?:number) {
 
     return {
         ...query,
-        dataClient: query.data?.data
+        data: query.data?.data
     }
 }
 
-
-const fetchAllClient = async (): AxiosPromise<clientData> => {
+const fetchAllClient = async (): AxiosPromise<clientData[]> => {
     const response = axios.get("http://localhost:8080/clients")
     return response
 }
@@ -37,7 +36,7 @@ const fetchAllClient = async (): AxiosPromise<clientData> => {
 export function useAllClientData() {
     const query = useQuery({
         queryFn: fetchAllClient,
-        queryKey: ['client-data'],
+        queryKey: ['client-data-all'],
         retry: 2
     })
 
@@ -46,3 +45,4 @@ export function useAllClientData() {
         dataClient: query.data?.data
     }
 }
+

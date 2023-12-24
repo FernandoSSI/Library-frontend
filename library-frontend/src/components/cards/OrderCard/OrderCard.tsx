@@ -17,14 +17,7 @@ export function OrderCard({ date, client, books, totalPrice }: OrderCardProps) {
 
     return (
         <>
-            <div className="orders-properties-container">
-                <span className="order-properties" id='dateOrder-property'><p>data</p></span>
-                <span className="order-properties" id='nameOrder-property'><p>nome</p></span>
-                <span className="order-properties" id='numberOrder-property'><p>número</p></span>
-                <span className="order-properties" id='booksOrder-property'><p>livros</p></span>
-                <span className="order-properties" id='valueOrder-property'><p>valor total</p></span>
-                <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
-            </div>
+            
             <div className="order-card-container">
                 <span className="cardO-date"><p>{date}</p></span>
                 <span className="cardO-name"><p>{client.name}</p></span>

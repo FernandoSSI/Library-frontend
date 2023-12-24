@@ -13,14 +13,14 @@ const Books = () => {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
   const { dataBook } = useBookData(search, page)
-  const [totalPages, setTotalPages]= useState(dataBook?.totalPages)
+  const [totalPages, setTotalPages] = useState(dataBook?.totalPages)
 
-  useEffect(()=>{
+  useEffect(() => {
     setTotalPages(dataBook?.totalPages)
   }, [dataBook])
 
-  const handlePage =(e:number)=>{
-    setPage(e-1);
+  const handlePage = (e: number) => {
+    setPage(e - 1);
   }
 
   return (
@@ -54,7 +54,7 @@ const Books = () => {
           </div>
           <div className='card-grid'>
 
-            {dataBook?.content.map(bookData => {
+            {dataBook && dataBook?.content.map(bookData => {
               return (
                 <Card
                   id={bookData.id}
@@ -69,7 +69,7 @@ const Books = () => {
             })}
           </div>
         </div>
-        <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page+1}/>    
+        <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1} />
       </div>
     </>
   )

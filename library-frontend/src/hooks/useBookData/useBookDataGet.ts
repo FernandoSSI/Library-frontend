@@ -36,7 +36,7 @@ const fetchAllData = async (): AxiosPromise<bookData> => {
 export function useAllBookData() {
     const query = useQuery({
         queryFn: fetchAllData,
-        queryKey: ['book-data'],
+        queryKey: ['book-data-all'],
         retry: 2
     })
 
