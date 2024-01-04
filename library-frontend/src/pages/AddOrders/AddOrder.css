@@ -49,15 +49,86 @@
 
 .infos-orderadd{
     margin-top: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .infos-orderadd p{
     margin: 10px 0;
 }
 
+.info-client-orderadd{
+    width: 30%;
+}
+
+.info-books-orderadd{
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+
 #client-name-order{
     font-size: 35px;
     font-weight: 500;
 }
+
+.cardBookOrderConteiner{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.CardBookOrderTitle{
+    width: 550px;
+    height: 40px;
+    border: 1px solid rgb(204, 204, 204);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+
+.CardBookOrderTitle p{
+    margin: 0;
+
+}
+
+#bookQuantity{
+    width: 50px;
+    height: 40px;
+    border: 1px solid rgb(204, 204, 204);
+    border-right: none;
+    border-radius: 0;
+    border-left: none;
+}
+
+#QuantityIncrement{
+    width: 30px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid rgb(204, 204, 204);
+    border-right: none;
+    border-left: none;
+    color: rgb(187, 187, 187);
+    font-size: 25px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+#QuantityDecreases{
+    width: 30px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+    color: rgb(187, 187, 187);
+    font-size: 25px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
 
 
