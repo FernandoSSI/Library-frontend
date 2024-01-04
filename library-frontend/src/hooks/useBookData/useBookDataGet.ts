@@ -28,7 +28,7 @@ export function useBookData(text: string, page: number, size?:number) {
     }
 }
 
-const fetchAllData = async (): AxiosPromise<bookData> => {
+const fetchAllData = async (): AxiosPromise<bookData[]> => {
     const response = axios.get("http://localhost:8080/books")
     return response
 }
