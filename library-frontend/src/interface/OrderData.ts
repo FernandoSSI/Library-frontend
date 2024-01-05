@@ -1,13 +1,17 @@
 import { bookDTO } from "./bookDTO";
 
-export interface OrderData{
-    id?:any;
+export interface OrderData {
+    id?: any;
     date: string;
-    client:{
-        id?:any;
-        name:string;
-        number:number;
+    client: {
+        id?: any;
+        name?: string;
+        number?: number;
+        city?: string,
+        street?: string,
+        nbh?: string,
+        hn?: number
     };
     books: bookDTO[];
-    totalPrice:number;
+    totalPrice?: number;
 }

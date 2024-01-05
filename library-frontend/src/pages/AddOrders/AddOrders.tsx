@@ -1,10 +1,13 @@
 import "./AddOrder.css"
 import { useAllClientData } from "../../hooks/useClientData/useClientDataGet"
 import { useAllBookData } from "../../hooks/useBookData/useBookDataGet"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { clientData } from "../../interface/clientData";
 import { SiWhatsapp } from "react-icons/si";
 import { bookData } from "../../interface/bookData";
+import { bookDTO } from "../../interface/bookDTO";
+import { useOrderDataMutate } from "../../hooks/useOrderData/useOrderDataPost";
+import { OrderData } from "../../interface/OrderData";
 
 interface cardBookOrder {
     book: bookData,
@@ -18,6 +21,7 @@ export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
     const increment = (e: any) => {
         if (quantity < book.quantity) {
             setQuantity(quantity + 1)
+            handleQuantity(quantity + 1)
             e.preventDefault();
         } else {
             e.preventDefault();
@@ -28,12 +32,19 @@ export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
     const decreases = (e: any) => {
         if (quantity > 1) {
             setQuantity(quantity - 1)
+            handleQuantity(quantity - 1)
             e.preventDefault();
         } else {
             e.preventDefault();
         }
 
     }
+
+
+    useEffect(() => {
+        handleQuantity(quantity);
+    }, []);
+
 
     return (
         <>
@@ -51,13 +62,18 @@ export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
     )
 }
 
+
+
 export function AddOrders() {
 
     const { dataClient } = useAllClientData()
-    const { dataBook } = useAllBookData()
     const [selectedClient, setSelectedClient] = useState<clientData | null>(null);
+
+    const { dataBook } = useAllBookData()
     const [selectedBooks, setSelectedBooks] = useState<any>([])
     const [selectedBooksDto, setSelectedBooksDto] = useState<any>([])
+
+    const { mutate } = useOrderDataMutate()
 
     const handleClient = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedIndex = e.target.selectedIndex - 1;
@@ -69,19 +85,56 @@ export function AddOrders() {
         const selectedIndex = e.target.selectedIndex - 1;
         const selectedBooksData = dataBook && dataBook[selectedIndex];
         setSelectedBooks([...selectedBooks, selectedBooksData])
-
     };
 
     const handleBooksDto = (book: bookData, quantity: number) => {
-        const selectedBooksDataDto = {
-            id: book.id,
-            title: book.title,
-            author: book.author,
-            condition: book.condition,
-            price: book.price,
-            quantity: book.quantity,
+        const id = book.id
+        const title = book.title
+        const author = book.author
+        const condition = book.condition
+        const price = book.price
+        const totalPrice = book.price * quantity
+
+        const existingBookIndex = selectedBooksDto.findIndex((item: bookDTO) => item.id === id);
+        if (existingBookIndex !== -1) {
+            selectedBooksDto.splice(existingBookIndex, 1)
         }
+
+        const selectedBooksDataDto: bookDTO = {
+            id,
+            title,
+            author,
+            condition,
+            price,
+            quantity,
+            totalPrice,
+        }
+
         setSelectedBooksDto([...selectedBooksDto, selectedBooksDataDto])
+    }
+
+    const submit = () => {
+        const date0 = new Date();
+        const day = String(date0.getDate()).padStart(2, '0');
+        const month = String(date0.getMonth() + 1).padStart(2, '0'); 
+        const year = date0.getFullYear();
+        const date = `${day}/${month}/${year}`;
+
+        const OrderData: OrderData = {
+            date,
+            client:{
+                id:selectedClient?.id,
+                name: selectedClient?.name,
+                number: selectedClient?.number,
+                city: selectedClient?.city,
+                nbh: selectedClient?.nbh,
+                street: selectedClient?.street,
+                hn: selectedClient?.hn
+            },
+            books: selectedBooksDto
+        }
+
+        mutate(OrderData)
     }
 
 
@@ -140,8 +193,11 @@ export function AddOrders() {
 
                         </div>
                         <div className="info-books-orderadd">
-                            {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={() => { }} />)}
+                            {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} />)}
                         </div>
+                    </div>
+                    <div>
+                        <button id="submit-order-btn" onClick={submit}>Adicionar pedido</button>
                     </div>
                 </form>
             </div>

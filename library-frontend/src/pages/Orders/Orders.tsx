@@ -22,7 +22,7 @@ export function Orders() {
                         <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
                     </div>
                     <div className="card-grid-order">
-                        {data && data.map(e =>
+                        {data && data.map((e:any) =>
                             <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} />)}
                     </div>
 

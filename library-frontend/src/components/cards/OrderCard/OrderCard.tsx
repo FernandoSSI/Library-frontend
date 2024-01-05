@@ -23,7 +23,7 @@ export function OrderCard({ date, client, books, totalPrice }: OrderCardProps) {
                 <span className="cardO-name"><p>{client.name}</p></span>
                 <span className="cardO-number"><p>{client.number}</p></span>
                 <span className="cardO-books">
-                    {books.map(e => <p>{e.title}</p>)}
+                    {books.map(e => <p>  {e.quantity} {e.title} </p>)}
                 </span>
                 <span className="cardO-price"><p>R$ {totalPrice}</p></span>
                 <span className="cardO-state"><p> Estado</p></span>
