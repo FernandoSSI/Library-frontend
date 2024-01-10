@@ -68,6 +68,7 @@ export function AddOrders() {
 
     const { dataClient } = useAllClientData()
     const [selectedClient, setSelectedClient] = useState<clientData | null>(null);
+    const [state, SetState] = useState("")
 
     const { dataBook } = useAllBookData()
     const [selectedBooks, setSelectedBooks] = useState<any>([])
@@ -114,7 +115,7 @@ export function AddOrders() {
     }
 
     const submit = () => {
-        if (selectedBooksDto[0]!=null && selectedClient) {
+        if (selectedBooksDto[0] != null && selectedClient) {
             const date0 = new Date();
             const day = String(date0.getDate()).padStart(2, '0');
             const month = String(date0.getMonth() + 1).padStart(2, '0');
@@ -132,7 +133,9 @@ export function AddOrders() {
                     street: selectedClient?.street,
                     hn: selectedClient?.hn
                 },
-                books: selectedBooksDto
+                books: selectedBooksDto,
+                orderStatus: state
+                
             }
 
             mutate(OrderData)
@@ -166,6 +169,18 @@ export function AddOrders() {
                             <option value="" disabled selected hidden id='placeHolderOpt'>selecione os livros</option>
 
                             {dataBook && dataBook?.map((e, index) => <option key={index} value={e.title}>{e.title}</option>)}
+                        </select>
+
+                        <select name="state-select"
+                            id="state-select"
+                            onChange={(e) => { SetState(e.target.value) }}>
+
+                            <option value="" disabled selected hidden id='placeHolderOpt'>Selecione o estado prévio do pedido </option>
+                            <option value="WAITING_PAYMENT">Esperando pagamento</option>
+                            <option value="SHIPPED">Enviado</option>
+                            <option value="DELIVERED">Entregue</option>
+                            <option value="CANCELED">Cancelado</option>
+
                         </select>
 
                     </div>

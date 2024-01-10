@@ -14,4 +14,5 @@ export interface OrderData {
     };
     books: bookDTO[];
     totalPrice?: number;
+    orderStatus?: string;
 }

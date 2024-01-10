@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { OrderCard } from "../../components/cards/OrderCard/OrderCard";
-import { useAllOrderData, useOrderDataGet } from "../../hooks/useOrderData/useOrderDataGet"
+import {useOrderDataGet} from "../../hooks/useOrderData/useOrderDataGet"
 import "./Orders.css"
 import { Pagination } from "../../components/Pagination/Pagination";
 
@@ -36,7 +36,7 @@ export function Orders() {
                     </div>
                     <div className="card-grid-order">
                         {data && data?.content.map((e:any) =>
-                            <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} />)}
+                            <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} orderStatus={e.orderStatus}/>)}
                     </div>
                 </div>
                 <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1}/>
