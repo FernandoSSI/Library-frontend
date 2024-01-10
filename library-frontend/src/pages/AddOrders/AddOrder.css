@@ -1,11 +1,11 @@
-.add-order-container{
+.add-order-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.order-input-container{
+.order-input-container {
     width: 92%;
     height: 100%;
     border-radius: 10px;
@@ -39,46 +39,46 @@
     font-weight: 400;
 }
 
-.order-selects{
+.order-selects {
     margin-top: 20px;
 }
 
-.order-selects select{
+.order-selects select {
     margin-right: 20px;
 }
 
-.infos-orderadd{
+.infos-orderadd {
     margin-top: 30px;
     display: flex;
     flex-direction: row;
 }
 
-.infos-orderadd p{
+.infos-orderadd p {
     margin: 10px 0;
 }
 
-.info-client-orderadd{
+.info-client-orderadd {
     width: 30%;
 }
 
-.info-books-orderadd{
+.info-books-orderadd {
     margin-top: 30px;
     margin-left: 100px;
 }
 
 
-#client-name-order{
+#client-name-order {
     font-size: 35px;
     font-weight: 500;
 }
 
-.cardBookOrderConteiner{
+.cardBookOrderConteiner {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
-.CardBookOrderTitle{
+.CardBookOrderTitle {
     width: 550px;
     height: 40px;
     border: 1px solid rgb(204, 204, 204);
@@ -87,15 +87,15 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    
+
 }
 
-.CardBookOrderTitle p{
+.CardBookOrderTitle p {
     margin: 0;
 
 }
 
-#bookQuantity{
+#bookQuantity {
     width: 50px;
     height: 40px;
     border: 1px solid rgb(204, 204, 204);
@@ -104,7 +104,7 @@
     border-left: none;
 }
 
-#QuantityIncrement{
+#QuantityIncrement {
     width: 30px;
     height: 40px;
     background-color: #fff;
@@ -117,7 +117,7 @@
     cursor: pointer;
 }
 
-#QuantityDecreases{
+#QuantityDecreases {
     width: 30px;
     height: 40px;
     background-color: #fff;
@@ -130,5 +130,25 @@
     cursor: pointer;
 }
 
+.btn-order-container {
+    margin-top: 200px;
+}
 
+#submit-order-btn {
+    background-color: #ffffff;
+    outline: none;
+    border: 1px solid #181818;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    transition: 0.2s;
+}
 
+#submit-order-btn:hover {
+    background-color: #1b3449 ;
+    border: 1px solid #F3F3F3;
+    color: white;
+}
