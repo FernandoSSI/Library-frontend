@@ -114,27 +114,31 @@ export function AddOrders() {
     }
 
     const submit = () => {
-        const date0 = new Date();
-        const day = String(date0.getDate()).padStart(2, '0');
-        const month = String(date0.getMonth() + 1).padStart(2, '0');
-        const year = date0.getFullYear();
-        const date = `${day}/${month}/${year}`;
+        if (selectedBooksDto[0]!=null && selectedClient) {
+            const date0 = new Date();
+            const day = String(date0.getDate()).padStart(2, '0');
+            const month = String(date0.getMonth() + 1).padStart(2, '0');
+            const year = date0.getFullYear();
+            const date = `${day}/${month}/${year}`;
 
-        const OrderData: OrderData = {
-            date,
-            client: {
-                id: selectedClient?.id,
-                name: selectedClient?.name,
-                number: selectedClient?.number,
-                city: selectedClient?.city,
-                nbh: selectedClient?.nbh,
-                street: selectedClient?.street,
-                hn: selectedClient?.hn
-            },
-            books: selectedBooksDto
+            const OrderData: OrderData = {
+                date,
+                client: {
+                    id: selectedClient?.id,
+                    name: selectedClient?.name,
+                    number: selectedClient?.number,
+                    city: selectedClient?.city,
+                    nbh: selectedClient?.nbh,
+                    street: selectedClient?.street,
+                    hn: selectedClient?.hn
+                },
+                books: selectedBooksDto
+            }
+
+            mutate(OrderData)
+        } else {
+            alert("Pedido não foi criado devido a ausência de livros")
         }
-
-        mutate(OrderData)
     }
 
 
@@ -196,10 +200,10 @@ export function AddOrders() {
                             {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} />)}
                         </div>
                     </div>
-                    {selectedClient && 
-                    <div className="btn-order-container">
-                        <button id="submit-order-btn" onClick={submit}>Adicionar pedido</button>
-                    </div>}
+                    {selectedClient &&
+                        <div className="btn-order-container">
+                            <button id="submit-order-btn" onClick={submit}>Adicionar pedido</button>
+                        </div>}
 
                 </form>
             </div>

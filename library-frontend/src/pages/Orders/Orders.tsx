@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
 import { OrderCard } from "../../components/cards/OrderCard/OrderCard";
-import { useOrderData } from "../../hooks/useOrderData/useOrderDataGet"
+import { useAllOrderData, useOrderDataGet } from "../../hooks/useOrderData/useOrderDataGet"
 import "./Orders.css"
+import { Pagination } from "../../components/Pagination/Pagination";
 
 export function Orders() {
-    const { data } = useOrderData();
+    const [search, setSearch] = useState("")
+    const [page, setPage] = useState(0)
+    const { data } = useOrderDataGet(search, page)
+    const [totalPages, setTotalPages] = useState(data?.totalPages)
+
+    useEffect(() => {
+        setTotalPages(data?.totalPages)
+    }, [data])
+
+    const handlePage = (e: number) => {
+        setPage(e - 1);
+    }
 
 
     return (
@@ -22,11 +35,11 @@ export function Orders() {
                         <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
                     </div>
                     <div className="card-grid-order">
-                        {data && data.map((e:any) =>
+                        {data && data?.content.map((e:any) =>
                             <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} />)}
                     </div>
-
                 </div>
+                <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1}/>
             </div>
         </>
     )
