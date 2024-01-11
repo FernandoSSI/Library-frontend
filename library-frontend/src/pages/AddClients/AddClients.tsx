@@ -21,29 +21,6 @@ const Input = ({ value, type, placeholder, updateValue, id }: InputProps) => {
     )
 }
 
-interface selectProps {
-    value: string | number,
-    id: string,
-    updateValue(value: any): void;
-}
-
-
-const Select = ({ value, updateValue, id }: selectProps) => {
-    return (
-        <>
-            <select id={id} value={value} onChange={e => updateValue(e.target.value)} placeholder='estado' >
-                <option value="" disabled selected hidden id='placeHolderOpt'>selecione o estado</option>
-                <option value="Novo">Novo</option>
-                <option value="Seminovo" >Seminovo</option>
-                <option value="Usado" >Usado</option>
-            </select>
-
-        </>
-    )
-}
-
-
-
 const AddClients = () => {
     const [name, setName] = useState("");
     const [numberP, setNumber] = useState("");
