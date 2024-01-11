@@ -50,7 +50,7 @@ export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
         <>
             <div className="cardBookOrderConteiner">
                 <span className="CardBookOrderTitle">
-                    <p>{book.title}</p>
+                    <p>{book.title} ({book.condition})</p>
                 </span>
 
                 <input type="number" name="bookQuantity" id="bookQuantity" value={quantity} />
@@ -85,7 +85,13 @@ export function AddOrders() {
     const handleBooks = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedIndex = e.target.selectedIndex - 1;
         const selectedBooksData = dataBook && dataBook[selectedIndex];
-        setSelectedBooks([...selectedBooks, selectedBooksData])
+        if (!selectedBooks.includes(selectedBooksData)) {
+            setSelectedBooks([...selectedBooks, selectedBooksData])
+        } else {
+            alert("Este livro ja está no pedido!")
+        }
+
+
     };
 
     const handleBooksDto = (book: bookData, quantity: number) => {
@@ -135,7 +141,7 @@ export function AddOrders() {
                 },
                 books: selectedBooksDto,
                 orderStatus: state
-                
+
             }
 
             mutate(OrderData)
@@ -168,7 +174,10 @@ export function AddOrders() {
                             onChange={handleBooks}>
                             <option value="" disabled selected hidden id='placeHolderOpt'>selecione os livros</option>
 
-                            {dataBook && dataBook?.map((e, index) => <option key={index} value={e.title}>{e.title}</option>)}
+                            {dataBook && dataBook?.map((e, index) => {
+                                const value = `${e.title} ${e.condition}`
+                                return <option key={index} value={value} >{e.title} ({e.condition})</option>
+                            })}
                         </select>
 
                         <select name="state-select"
