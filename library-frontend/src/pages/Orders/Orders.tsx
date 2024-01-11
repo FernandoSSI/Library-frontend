@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { OrderCard } from "../../components/cards/OrderCard/OrderCard";
-import {useOrderDataGet} from "../../hooks/useOrderData/useOrderDataGet"
+import { useOrderDataGet } from "../../hooks/useOrderData/useOrderDataGet"
 import "./Orders.css"
 import { Pagination } from "../../components/Pagination/Pagination";
+import { Link } from "react-router-dom";
+import { GoPlus } from "react-icons/go";
 
 export function Orders() {
     const [search, setSearch] = useState("")
@@ -26,6 +28,13 @@ export function Orders() {
                     <div className="orders-title">
                         <h1>Pedidos</h1>
                     </div>
+                    <div className="search-bar">
+                        <div className="add-button">
+                            <Link to={"/addorders"}><GoPlus /></Link>
+                        </div>
+                        <input type="search" name="search-bar" id="bar" onChange={(e: any) => setSearch(e.target.value)} placeholder="Procure por titulos, ou clientes" />
+                    </div>
+
                     <div className="orders-properties-container">
                         <span className="order-properties" id='dateOrder-property'><p>data</p></span>
                         <span className="order-properties" id='nameOrder-property'><p>cliente</p></span>
@@ -35,11 +44,11 @@ export function Orders() {
                         <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
                     </div>
                     <div className="card-grid-order">
-                        {data && data?.content.map((e:any) =>
-                            <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} orderStatus={e.orderStatus}/>)}
+                        {data && data?.content.map((e: any) =>
+                            <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} orderStatus={e.orderStatus} />)}
                     </div>
                 </div>
-                <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1}/>
+                <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1} />
             </div>
         </>
     )
