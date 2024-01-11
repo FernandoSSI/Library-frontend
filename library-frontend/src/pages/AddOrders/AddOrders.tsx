@@ -176,7 +176,12 @@ export function AddOrders() {
 
                             {dataBook && dataBook?.map((e, index) => {
                                 const value = `${e.title} ${e.condition}`
-                                return <option key={index} value={value} >{e.title} ({e.condition})</option>
+                                if(e.quantity > 0){
+                                    return <option key={index} value={value} >{e.title} ({e.condition})</option>
+                                } else{
+                                    return <option key={index} value={value} disabled >{e.title} ({e.condition})</option>
+                                }
+                                
                             })}
                         </select>
 
