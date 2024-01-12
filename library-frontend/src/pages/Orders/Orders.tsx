@@ -45,7 +45,7 @@ export function Orders() {
                     </div>
                     <div className="card-grid-order">
                         {data && data?.content.map((e: any) =>
-                            <OrderCard date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} orderStatus={e.orderStatus} />)}
+                            <OrderCard id={e.id} date={e.date} client={e.client} books={e.books} totalPrice={e.totalPrice} orderStatus={e.orderStatus} />)}
                     </div>
                 </div>
                 <Pagination totalPages={totalPages} changePage={handlePage} currentPage={page + 1} />
