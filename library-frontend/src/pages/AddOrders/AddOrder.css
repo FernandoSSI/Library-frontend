@@ -76,6 +76,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    background-color: #fff;
 }
 
 .CardBookOrderTitle {
@@ -93,6 +94,10 @@
 .CardBookOrderTitle p {
     margin: 0;
 
+}
+
+.quantity-span{
+    height: 40px;
 }
 
 #bookQuantity {

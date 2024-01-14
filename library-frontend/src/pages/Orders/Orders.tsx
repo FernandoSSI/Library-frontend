@@ -41,7 +41,7 @@ export function Orders() {
                         <span className="order-properties" id='numberOrder-property'><p>número</p></span>
                         <span className="order-properties" id='booksOrder-property'><p>livros</p></span>
                         <span className="order-properties" id='valueOrder-property'><p>valor total</p></span>
-                        <span className="order-properties" id='paymentOrder-property'><p>pagamento</p></span>
+                        <span className="order-properties" id='paymentOrder-property'><p>status</p></span>
                     </div>
                     <div className="card-grid-order">
                         {data && data?.content.map((e: any) =>

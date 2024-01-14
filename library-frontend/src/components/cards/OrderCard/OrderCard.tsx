@@ -45,12 +45,6 @@ export function OrderCard({ id, date, client, books, totalPrice, orderStatus }: 
         
     }
 
-    
-
-
-
-
-
     switch (orderStatus) {
         case 'WAITING_PAYMENT':
             orderStatus = "Esperando pagamento"
@@ -90,7 +84,7 @@ export function OrderCard({ id, date, client, books, totalPrice, orderStatus }: 
             }
 
             {edit &&
-                <EditOrder/>}
+                <EditOrder idProp={id} dateProp={date} clientProp={client} booksProp={books} close={openEdit}  orderStatusProp={orderStatus}/>}
         </>
     )
 }

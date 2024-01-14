@@ -52,8 +52,10 @@ export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
                 <span className="CardBookOrderTitle">
                     <p>{book.title} ({book.condition})</p>
                 </span>
+                <span className="quantity-span">
+                    <input type="number" name="bookQuantity" id="bookQuantity" value={quantity} />
+                </span>
 
-                <input type="number" name="bookQuantity" id="bookQuantity" value={quantity} />
                 <button onClick={increment} id="QuantityIncrement">+</button>
                 <button onClick={decreases} id="QuantityDecreases">-</button>
             </div>
@@ -176,12 +178,12 @@ export function AddOrders() {
 
                             {dataBook && dataBook?.map((e, index) => {
                                 const value = `${e.title} ${e.condition}`
-                                if(e.quantity > 0){
+                                if (e.quantity > 0) {
                                     return <option key={index} value={value} >{e.title} ({e.condition})</option>
-                                } else{
+                                } else {
                                     return <option key={index} value={value} disabled >{e.title} ({e.condition})</option>
                                 }
-                                
+
                             })}
                         </select>
 

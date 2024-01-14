@@ -1,0 +1,23 @@
+.selects-edit{
+    width: 100%;
+    margin-top: 40px;
+}
+
+#clients-select, #books-select{
+    margin-bottom: 10px;
+}
+
+#client-name-order-edit{
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: -10px;
+}
+
+#client-number-order-edit{
+    margin-bottom: -10px;
+    font-size: 20px;
+}
+
+#client-city-order-edit{
+    font-size: 20px;
+}
