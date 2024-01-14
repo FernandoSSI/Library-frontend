@@ -4,9 +4,6 @@ import { clientData } from "../../interface/clientData"
 
 const API_URL = "http://localhost:8080"
 
-
-
-
 const putData =async (data: clientData): AxiosPromise<any>  => {
 
     const response = axios.put(API_URL + `/clients/${data.id}`, data)

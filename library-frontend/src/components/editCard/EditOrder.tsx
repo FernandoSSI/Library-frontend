@@ -36,20 +36,16 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
     const prevClientIndex = getClientIndex(clientProp.id)
     const [selectedClient, setSelectedClient] = useState<clientData | any>(dataClient && prevClientIndex && dataClient[prevClientIndex]);
+    console.log(selectedClient)
 
     const { dataBook } = useAllBookData()
     const [selectedBooks, setSelectedBooks] = useState<any>(booksProp)
     const [selectedBooksDto, setSelectedBooksDto] = useState<any>([])
 
-    const [id, setId] = useState(idProp)
-    const [date, setDate] = useState(dateProp)
-    const [books, setBooks] = useState(booksProp)
     const [client, setClient] = useState(clientProp)
     const [orderStatus, setOrderStatus] = useState(orderStatusProp)
-    const [state, SetState] = useState("")
 
     const { mutate } = useOrderDataPut()
-
 
     const handleClient = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedIndex = e.target.selectedIndex - 1;
@@ -98,11 +94,15 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
         }
 
         setSelectedBooksDto([...selectedBooksDto, selectedBooksDataDto])
+        console.log(selectedBooksDto)
     }
 
     const submit = () => {
+        let totalPrice = 0
+        selectedBooksDto.map((e:bookDTO) =>{
+            totalPrice += e.totalPrice
+        })
         if (selectedBooksDto[0] != null && selectedClient) {
-
             const OrderData: OrderData = {
                 id: idProp,
                 date: dateProp,
@@ -116,9 +116,9 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                     hn: selectedClient?.hn
                 },
                 books: selectedBooksDto,
-                orderStatus: state
+                totalPrice: totalPrice,
+                orderStatus: orderStatus
             }
-
             mutate(OrderData)
         } else {
             alert("Pedido não foi criado devido a ausência de livros")
@@ -170,7 +170,8 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
                             <select name="state-select"
                                 id="state-select"
-                                onChange={(e) => { SetState(e.target.value) }}>
+                                onChange={(e) => { setOrderStatus(e.target.value) }}
+                                value={orderStatus}>
 
                                 <option value="" disabled selected hidden id='placeHolderOpt'>Selecione o estado prévio do pedido </option>
                                 <option value="WAITING_PAYMENT">Esperando pagamento</option>
@@ -187,7 +188,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                                 <p id="client-number-order-edit">
                                     {selectedClient?.number && (
                                         <>
-                                            <SiWhatsapp /> {selectedClient?.number}
+                                            {selectedClient?.number}
                                         </>
                                     )}
 
