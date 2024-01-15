@@ -45,21 +45,20 @@ export function OrderCard({ id, date, client, books, totalPrice, orderStatus }: 
         
     }
 
+    let orderStatusString = ""
+
     switch (orderStatus) {
         case 'WAITING_PAYMENT':
-            orderStatus = "Esperando pagamento"
-            break
-        case 'PAID':
-            orderStatus = "Pedido pago"
+            orderStatusString = "Esperando pagamento"
             break
         case 'SHIPPED':
-            orderStatus = "Pedido enviado"
+            orderStatusString = "Pedido enviado"
             break
         case 'DELIVERED':
-            orderStatus = "Pedido entregue"
+            orderStatusString = "Pedido entregue"
             break
         case 'CANCELED':
-            orderStatus = "Pedido cancelado"
+            orderStatusString = "Pedido cancelado"
             break
     }
 
@@ -74,7 +73,7 @@ export function OrderCard({ id, date, client, books, totalPrice, orderStatus }: 
                     {books.map(e => <p>  {e.quantity} {e.title} </p>)}
                 </span>
                 <span className="cardO-price"><p>R$ {totalPrice}</p></span>
-                <span className="cardO-state"><p> {orderStatus}</p></span>
+                <span className="cardO-state"><p> {orderStatusString}</p></span>
             </div>
             {selected &&
                 <div className='card-options'>

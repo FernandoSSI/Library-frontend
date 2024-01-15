@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAllClientData } from '../../hooks/useClientData/useClientDataGet';
 import { bookDTO } from '../../interface/bookDTO'
 import { clientData } from '../../interface/clientData'
 import './EditOrder.css'
 import { useAllBookData } from '../../hooks/useBookData/useBookDataGet';
 import { bookData } from '../../interface/bookData';
-import { SiWhatsapp } from 'react-icons/si';
 import { CardBookOrder } from '../../pages/AddOrders/AddOrders';
 import { OrderData } from '../../interface/OrderData';
 import { useOrderDataPut } from '../../hooks/useOrderData/useOrderDataPut';
@@ -36,16 +35,25 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
     const prevClientIndex = getClientIndex(clientProp.id)
     const [selectedClient, setSelectedClient] = useState<clientData | any>(dataClient && prevClientIndex && dataClient[prevClientIndex]);
-    console.log(selectedClient)
 
     const { dataBook } = useAllBookData()
     const [selectedBooks, setSelectedBooks] = useState<any>(booksProp)
     const [selectedBooksDto, setSelectedBooksDto] = useState<any>([])
 
-    const [client, setClient] = useState(clientProp)
     const [orderStatus, setOrderStatus] = useState(orderStatusProp)
 
     const { mutate } = useOrderDataPut()
+
+    useEffect(() => {
+        // Verifica se os dados do cliente estão disponíveis antes de definir o estado
+        if (dataClient && dataClient.length > 0) {
+            const initialClientIndex = getClientIndex(clientProp.id);
+            if (initialClientIndex !== null && initialClientIndex !== undefined) {
+                const initialClientData = dataClient[initialClientIndex] || null;
+                setSelectedClient(initialClientData);
+            }
+        }
+    }, [dataClient, clientProp.id]);
 
     const handleClient = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedIndex = e.target.selectedIndex - 1;
@@ -56,17 +64,19 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
     const handleBooks = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedIndex = e.target.selectedIndex - 1;
         const selectedBooksData = dataBook && dataBook[selectedIndex];
-
         if (selectedBooksData) {
-            const isBookAlreadySelected = selectedBooks.some((book: bookDTO) => book.id === selectedBooksData.id);
 
-            if (!isBookAlreadySelected) {
-                setSelectedBooks([...selectedBooks, selectedBooksData]);
-            } else {
-                alert("Este livro já está no pedido!");
-            }
+            setSelectedBooks((prevSelectedBooks:any) => {
+                const isBookAlreadySelected = prevSelectedBooks.some((book: bookDTO) => book.id === selectedBooksData.id);
+    
+                if (!isBookAlreadySelected) {
+                    return [...prevSelectedBooks, selectedBooksData];
+                } else {
+                    alert("Este livro já está no pedido!");
+                    return prevSelectedBooks; 
+                }
+            });
         }
-
 
     };
 
@@ -93,7 +103,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
             totalPrice,
         }
 
-        setSelectedBooksDto([...selectedBooksDto, selectedBooksDataDto])
+        selectedBooksDto.push(selectedBooksDataDto)
         console.log(selectedBooksDto)
     }
 
@@ -175,9 +185,9 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
                                 <option value="" disabled selected hidden id='placeHolderOpt'>Selecione o estado prévio do pedido </option>
                                 <option value="WAITING_PAYMENT">Esperando pagamento</option>
-                                <option value="SHIPPED">Enviado</option>
-                                <option value="DELIVERED">Entregue</option>
-                                <option value="CANCELED">Cancelado</option>
+                                <option value="SHIPPED">Pedido enviado</option>
+                                <option value="DELIVERED">Pedido entregue</option>
+                                <option value="CANCELED">Pedido cancelado</option>
 
                             </select>
 
