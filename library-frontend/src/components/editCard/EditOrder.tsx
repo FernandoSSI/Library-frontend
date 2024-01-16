@@ -66,14 +66,14 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
         const selectedBooksData = dataBook && dataBook[selectedIndex];
         if (selectedBooksData) {
 
-            setSelectedBooks((prevSelectedBooks:any) => {
+            setSelectedBooks((prevSelectedBooks: any) => {
                 const isBookAlreadySelected = prevSelectedBooks.some((book: bookDTO) => book.id === selectedBooksData.id);
-    
+
                 if (!isBookAlreadySelected) {
                     return [...prevSelectedBooks, selectedBooksData];
                 } else {
                     alert("Este livro já está no pedido!");
-                    return prevSelectedBooks; 
+                    return prevSelectedBooks;
                 }
             });
         }
@@ -104,12 +104,21 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
         }
 
         selectedBooksDto.push(selectedBooksDataDto)
-        console.log(selectedBooksDto)
     }
 
-    const submit = () => {
+    const quantityCardBook = (e: bookData) => {
+        const existingBookIndex = selectedBooksDto.findIndex((item: bookDTO) => item.id === e.id);
+
+        if (existingBookIndex == -1) {
+            return 1
+        } 
+        console.log(e)
+        return e.quantity
+    }
+
+    const submit = (e: any) => {
         let totalPrice = 0
-        selectedBooksDto.map((e:bookDTO) =>{
+        selectedBooksDto.map((e: bookDTO) => {
             totalPrice += e.totalPrice
         })
         if (selectedBooksDto[0] != null && selectedClient) {
@@ -126,8 +135,8 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                     hn: selectedClient?.hn
                 },
                 books: selectedBooksDto,
-                totalPrice: totalPrice,
-                orderStatus: orderStatus
+                totalPrice,
+                orderStatus
             }
             mutate(OrderData)
         } else {
@@ -212,7 +221,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                                 </p>
                             </div>
                             <div className="info-books-order-edit">
-                                {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} />)}
+                                {selectedBooks?.map((e: bookData) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} quantityProp={quantityCardBook(e)} />)}
                             </div>
                         </div>
 

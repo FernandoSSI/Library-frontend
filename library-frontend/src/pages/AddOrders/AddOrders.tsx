@@ -11,12 +11,13 @@ import { OrderData } from "../../interface/OrderData";
 
 interface cardBookOrder {
     book: bookData,
-    handleQuantity: any
+    handleQuantity: any,
+    quantityProp?: number,
 }
 
-export function CardBookOrder({ book, handleQuantity }: cardBookOrder) {
+export function CardBookOrder({ book, handleQuantity, quantityProp }: cardBookOrder) {
 
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState<number>(quantityProp? quantityProp : 1);
 
     const increment = (e: any) => {
         if (quantity < book.quantity) {
