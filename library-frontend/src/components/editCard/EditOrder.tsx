@@ -26,7 +26,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
 
     const { dataClient } = useAllClientData()
-
+    const { dataBook } = useAllBookData()
 
     function getClientIndex(clientId: any) {
         const index = dataClient?.findIndex(client => client.id === clientId);
@@ -36,8 +36,23 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
     const prevClientIndex = getClientIndex(clientProp.id)
     const [selectedClient, setSelectedClient] = useState<clientData | any>(dataClient && prevClientIndex && dataClient[prevClientIndex]);
 
-    const { dataBook } = useAllBookData()
-    const [selectedBooks, setSelectedBooks] = useState<any>(booksProp)
+    const [selectedBooks, setSelectedBooks] = useState<any>([]);
+
+    booksProp.map((bookDto: bookDTO) => {
+        const idDTO = bookDto.id
+        dataBook?.map((book: bookData) => {
+            const id = book.id
+            if (idDTO === id) {
+                if (!selectedBooks.includes(book)) {
+                    selectedBooks.push(book)
+                }
+
+            }
+        })
+    })
+
+
+
     const [selectedBooksDto, setSelectedBooksDto] = useState<any>([])
 
     const [orderStatus, setOrderStatus] = useState(orderStatusProp)
@@ -107,16 +122,18 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
     }
 
     const quantityCardBook = (e: bookData) => {
-        const existingBookIndex = selectedBooksDto.findIndex((item: bookDTO) => item.id === e.id);
 
-        if (existingBookIndex == -1) {
-            return 1
-        } 
-        console.log(e)
-        return e.quantity
+        let bookquantity = -1
+        booksProp?.map((book: bookDTO) => {
+            if (e.id === book.id) {
+                bookquantity = book.quantity
+            }
+        })
+
+        return bookquantity
     }
 
-    const submit = (e: any) => {
+    const submit = () => {
         let totalPrice = 0
         selectedBooksDto.map((e: bookDTO) => {
             totalPrice += e.totalPrice
@@ -224,14 +241,9 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                                 {selectedBooks?.map((e: bookData) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} quantityProp={quantityCardBook(e)} />)}
                             </div>
                         </div>
-
-
-
-
                     </form>
                 </div>
             </div>
-
         </>
     )
 }

@@ -12,40 +12,48 @@ import { OrderData } from "../../interface/OrderData";
 interface cardBookOrder {
     book: bookData,
     handleQuantity: any,
-    quantityProp?: number,
+    quantityProp?: any,
 }
 
 export function CardBookOrder({ book, handleQuantity, quantityProp }: cardBookOrder) {
+    const [quantity, setQuantity] = useState<number>(quantityProp || 1);
+    let initialQuantity = 0
 
-    const [quantity, setQuantity] = useState<number>(quantityProp? quantityProp : 1);
+    if (quantityProp==-1) {
+        initialQuantity = 0
+    } else if(quantityProp && quantityProp != -1){
+        initialQuantity = quantityProp
+    }
 
     const increment = (e: any) => {
-        if (quantity < book.quantity) {
-            setQuantity(quantity + 1)
-            handleQuantity(quantity + 1)
+        if (quantity < book.quantity+initialQuantity) {
+            setQuantity(quantity + 1);
+            handleQuantity(quantity + 1);
             e.preventDefault();
         } else {
             e.preventDefault();
         }
-
-    }
+    };
 
     const decreases = (e: any) => {
         if (quantity > 1) {
-            setQuantity(quantity - 1)
-            handleQuantity(quantity - 1)
+            setQuantity(quantity - 1);
+            handleQuantity(quantity - 1);
             e.preventDefault();
         } else {
             e.preventDefault();
         }
-
-    }
-
+    };
 
     useEffect(() => {
-        handleQuantity(quantity);
-    }, []);
+        console.log("mudei")
+        setQuantity(quantityProp || 1);
+    }, [quantityProp]);
 
+    useEffect(() => {
+        // Atualizar o estado quando o componente for montado
+        handleQuantity(quantity);
+    }, [])
 
     return (
         <>
