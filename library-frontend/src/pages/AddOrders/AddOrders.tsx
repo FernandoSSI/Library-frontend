@@ -1,32 +1,34 @@
 import "./AddOrder.css"
 import { useAllClientData } from "../../hooks/useClientData/useClientDataGet"
 import { useAllBookData } from "../../hooks/useBookData/useBookDataGet"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { clientData } from "../../interface/clientData";
 import { SiWhatsapp } from "react-icons/si";
 import { bookData } from "../../interface/bookData";
 import { bookDTO } from "../../interface/bookDTO";
 import { useOrderDataMutate } from "../../hooks/useOrderData/useOrderDataPost";
 import { OrderData } from "../../interface/OrderData";
+import { SlTrash } from "react-icons/sl";
 
 interface cardBookOrder {
     book: bookData,
     handleQuantity: any,
     quantityProp?: any,
+    excludeBook?: any
 }
 
-export function CardBookOrder({ book, handleQuantity, quantityProp }: cardBookOrder) {
+export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook }: cardBookOrder) {
     const [quantity, setQuantity] = useState<number>(quantityProp || 1);
     let initialQuantity = 0
 
-    if (quantityProp==-1) {
+    if (quantityProp == -1) {
         initialQuantity = 0
-    } else if(quantityProp && quantityProp != -1){
+    } else if (quantityProp && quantityProp != -1) {
         initialQuantity = quantityProp
     }
 
     const increment = (e: any) => {
-        if (quantity < book.quantity+initialQuantity) {
+        if (quantity < book.quantity + initialQuantity) {
             setQuantity(quantity + 1);
             handleQuantity(quantity + 1);
             e.preventDefault();
@@ -46,7 +48,6 @@ export function CardBookOrder({ book, handleQuantity, quantityProp }: cardBookOr
     };
 
     useEffect(() => {
-        console.log("mudei")
         setQuantity(quantityProp || 1);
     }, [quantityProp]);
 
@@ -67,6 +68,7 @@ export function CardBookOrder({ book, handleQuantity, quantityProp }: cardBookOr
 
                 <button onClick={increment} id="QuantityIncrement">+</button>
                 <button onClick={decreases} id="QuantityDecreases">-</button>
+                <span onClick={() => excludeBook(book.id)} id="excludeBookOrder"><SlTrash /></span>
             </div>
 
         </>
@@ -101,8 +103,6 @@ export function AddOrders() {
         } else {
             alert("Este livro ja está no pedido!")
         }
-
-
     };
 
     const handleBooksDto = (book: bookData, quantity: number) => {
@@ -160,6 +160,24 @@ export function AddOrders() {
             alert("Pedido não foi criado devido a ausência de livros")
         }
     }
+
+    const excludeBook = useCallback((id: any) => {
+        const updatedSelectedBooks = [...selectedBooks];
+        const existingBookIndex = updatedSelectedBooks.findIndex((item: bookData) => item.id === id);
+
+        if (existingBookIndex !== -1) {
+            updatedSelectedBooks.splice(existingBookIndex, 1);
+            setSelectedBooks(updatedSelectedBooks);
+        }
+
+        const updatedSelectedBooksDto = [...selectedBooksDto];
+        const existingBookIndexDto = updatedSelectedBooksDto.findIndex((item: bookDTO) => item.id === id);
+
+        if (existingBookIndexDto !== -1) {
+            updatedSelectedBooksDto.splice(existingBookIndexDto, 1);
+            setSelectedBooksDto(updatedSelectedBooksDto);
+        }
+    }, [selectedBooks, selectedBooksDto]);
 
 
     return (
@@ -237,7 +255,7 @@ export function AddOrders() {
 
                         </div>
                         <div className="info-books-orderadd">
-                            {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} />)}
+                            {selectedBooks?.map((e: any) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} excludeBook={excludeBook} />)}
                         </div>
                     </div>
                     {selectedClient &&

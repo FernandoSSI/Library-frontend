@@ -135,6 +135,19 @@
     cursor: pointer;
 }
 
+#excludeBookOrder{
+    width: 30px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+    color: rgb(158, 4, 4);
+    font-size: 25px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
 .btn-order-container {
     margin-top: 200px;
 }
