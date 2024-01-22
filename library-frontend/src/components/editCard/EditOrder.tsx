@@ -23,6 +23,7 @@ interface EditCardProps {
 }
 
 export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orderStatusProp }: EditCardProps) {
+    
 
 
     const { dataClient } = useAllClientData()
@@ -38,20 +39,22 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
 
     const [selectedBooks, setSelectedBooks] = useState<any>([]);
 
-    booksProp.map((bookDto: bookDTO) => {
-        const idDTO = bookDto.id
-        dataBook?.map((book: bookData) => {
-            const id = book.id
-            if (idDTO === id) {
-                if (!selectedBooks.includes(book)) {
-                    selectedBooks.push(book)
+    useEffect(()=>{
+        booksProp.map((bookDto: bookDTO) => {
+            const idDTO = bookDto.id
+            dataBook?.map((book: bookData) => {
+                const id = book.id
+                if (idDTO === id) {
+                    if (!selectedBooks.includes(book)) {
+                        selectedBooks.push(book)
+                    }
+    
                 }
-
-            }
+            })
         })
-    })
+    },[dataBook])
 
-
+    
 
     const [selectedBooksDto, setSelectedBooksDto] = useState<any>([])
 
@@ -60,7 +63,6 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
     const { mutate } = useOrderDataPut()
 
     useEffect(() => {
-        // Verifica se os dados do cliente estão disponíveis antes de definir o estado
         if (dataClient && dataClient.length > 0) {
             const initialClientIndex = getClientIndex(clientProp.id);
             if (initialClientIndex !== null && initialClientIndex !== undefined) {
@@ -173,6 +175,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
             setSelectedBooks(updatedSelectedBooks);
             updatedSelectedBooksDto.splice(existingBookIndexDto, 1);
             setSelectedBooksDto(updatedSelectedBooksDto);
+           
         }
 
         console.log(selectedBooks)

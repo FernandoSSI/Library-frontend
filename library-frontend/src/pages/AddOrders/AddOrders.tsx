@@ -26,11 +26,11 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
         initialQuantity = quantityProp
     }
 
-    const [quantity, setQuantity] = useState<number>(0);
+    const [quantity, setQuantity] = useState<number>(initialQuantity);
     
 
     const increment = (e: any) => {
-        if(quantityProp != -1){
+        if(quantityProp && quantityProp != -1){
             if (quantity < book.quantity + initialQuantity) {
                 setQuantity(quantity + 1);
                 handleQuantity(quantity + 1);
