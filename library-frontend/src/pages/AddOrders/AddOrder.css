@@ -72,7 +72,11 @@
     font-weight: 500;
 }
 
-.cardBookOrderConteiner {
+.cardBookOrderContainerOverlay{
+    display: flex;
+}
+
+.cardBookOrderContainer {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
@@ -138,14 +142,13 @@
 #excludeBookOrder{
     width: 30px;
     height: 40px;
-    background-color: #fff;
     border: none;
-    border-radius: 0 5px 5px 0;
-    border-left: none;
     color: rgb(158, 4, 4);
     font-size: 25px;
     font-weight: lighter;
     cursor: pointer;
+    text-align: center;
+    align-items: center;
 }
 
 .btn-order-container {

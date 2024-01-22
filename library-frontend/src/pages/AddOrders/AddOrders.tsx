@@ -18,7 +18,7 @@ interface cardBookOrder {
 }
 
 export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook }: cardBookOrder) {
-    
+
     let initialQuantity = 0
     if (quantityProp == -1) {
         initialQuantity = 1
@@ -27,10 +27,10 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
     }
 
     const [quantity, setQuantity] = useState<number>(initialQuantity);
-    
+
 
     const increment = (e: any) => {
-        if(quantityProp && quantityProp != -1){
+        if (quantityProp && quantityProp != -1) {
             if (quantity < book.quantity + initialQuantity) {
                 setQuantity(quantity + 1);
                 handleQuantity(quantity + 1);
@@ -47,7 +47,7 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
                 e.preventDefault();
             }
         }
-        
+
     };
 
     const decreases = (e: any) => {
@@ -61,12 +61,12 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
     };
 
     useEffect(() => {
-        if(quantityProp != -1){
+        if (quantityProp != -1) {
             setQuantity(quantityProp || 1);
         } else {
             setQuantity(1)
         }
-       
+
     }, [quantityProp]);
 
     useEffect(() => {
@@ -76,19 +76,21 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
 
     return (
         <>
-            <div className="cardBookOrderConteiner">
-                <span className="CardBookOrderTitle">
-                    <p>{book.title} ({book.condition})</p>
-                </span>
-                <span className="quantity-span">
-                    <input type="number" name="bookQuantity" id="bookQuantity" value={quantity} />
-                </span>
+            <div className="cardBookOrderContainerOverlay">
+                <div className="cardBookOrderContainer">
+                    <span className="CardBookOrderTitle">
+                        <p>{book.title} ({book.condition})</p>
+                    </span>
+                    <span className="quantity-span">
+                        <input type="number" name="bookQuantity" id="bookQuantity" value={quantity} />
+                    </span>
 
-                <button onClick={increment} id="QuantityIncrement">+</button>
-                <button onClick={decreases} id="QuantityDecreases">-</button>
+                    <button onClick={increment} id="QuantityIncrement">+</button>
+                    <button onClick={decreases} id="QuantityDecreases">-</button>
+
+                </div>
                 <span onClick={() => excludeBook(book.id)} id="excludeBookOrder"><SlTrash /></span>
             </div>
-
         </>
     )
 }
