@@ -18,23 +18,36 @@ interface cardBookOrder {
 }
 
 export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook }: cardBookOrder) {
-    const [quantity, setQuantity] = useState<number>(quantityProp || 1);
+    
     let initialQuantity = 0
-
     if (quantityProp == -1) {
-        initialQuantity = 0
-    } else if (quantityProp && quantityProp != -1) {
+        initialQuantity = 1
+    } else {
         initialQuantity = quantityProp
     }
 
+    const [quantity, setQuantity] = useState<number>(0);
+    
+
     const increment = (e: any) => {
-        if (quantity < book.quantity + initialQuantity) {
-            setQuantity(quantity + 1);
-            handleQuantity(quantity + 1);
-            e.preventDefault();
+        if(quantityProp != -1){
+            if (quantity < book.quantity + initialQuantity) {
+                setQuantity(quantity + 1);
+                handleQuantity(quantity + 1);
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+            }
         } else {
-            e.preventDefault();
+            if (quantity < book.quantity) {
+                setQuantity(quantity + 1);
+                handleQuantity(quantity + 1);
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+            }
         }
+        
     };
 
     const decreases = (e: any) => {
@@ -48,7 +61,12 @@ export function CardBookOrder({ book, handleQuantity, quantityProp, excludeBook 
     };
 
     useEffect(() => {
-        setQuantity(quantityProp || 1);
+        if(quantityProp != -1){
+            setQuantity(quantityProp || 1);
+        } else {
+            setQuantity(1)
+        }
+       
     }, [quantityProp]);
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useAllClientData } from '../../hooks/useClientData/useClientDataGet';
 import { bookDTO } from '../../interface/bookDTO'
 import { clientData } from '../../interface/clientData'
@@ -161,6 +161,23 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
         }
     }
 
+    const excludeBook = useCallback((id: any) => {
+        const updatedSelectedBooks = [...selectedBooks];
+        const existingBookIndex = updatedSelectedBooks.findIndex((item: bookData) => item.id === id);
+        
+        const updatedSelectedBooksDto = [...selectedBooksDto];
+        const existingBookIndexDto = updatedSelectedBooksDto.findIndex((item: bookDTO) => item.id === id);
+
+        if (existingBookIndex !== -1 && existingBookIndexDto !== -1) {
+            updatedSelectedBooks.splice(existingBookIndex, 1);
+            setSelectedBooks(updatedSelectedBooks);
+            updatedSelectedBooksDto.splice(existingBookIndexDto, 1);
+            setSelectedBooksDto(updatedSelectedBooksDto);
+        }
+
+        console.log(selectedBooks)
+    }, [selectedBooks, selectedBooksDto]); 
+
     return (
         <>
             <div className='edit-overlay'>
@@ -238,7 +255,7 @@ export function EditOrder({ close, idProp, dateProp, booksProp, clientProp, orde
                                 </p>
                             </div>
                             <div className="info-books-order-edit">
-                                {selectedBooks?.map((e: bookData) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} quantityProp={quantityCardBook(e)} />)}
+                                {selectedBooks?.map((e: bookData) => <CardBookOrder book={e} handleQuantity={(quantity: number) => handleBooksDto(e, quantity)} quantityProp={quantityCardBook(e)} excludeBook={excludeBook} />)}
                             </div>
                         </div>
                     </form>
