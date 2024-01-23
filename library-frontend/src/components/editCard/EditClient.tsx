@@ -1,6 +1,4 @@
-import { useBookDataPut } from '../../hooks/useBookData/useBookDataPut'
 import { useClientDataPut } from '../../hooks/useClientData/useClientDataPut';
-import { bookData } from '../../interface/bookData'
 import { clientData } from '../../interface/clientData';
 import './EditCard.css'
 import { useState } from 'react'
