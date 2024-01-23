@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import './OnlineCatalog.css'
 import { SlMagnifier } from "react-icons/sl";

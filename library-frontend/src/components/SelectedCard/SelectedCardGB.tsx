@@ -1,4 +1,3 @@
-import React from 'react'
 import './SelectedCardGB.css'
 import {useState} from 'react'
 import { AddBookGB } from '../addBookGB/AddBookGB';

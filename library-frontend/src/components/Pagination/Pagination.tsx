@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './Pagination.css'
 
 interface PaginationProps {
@@ -12,8 +11,6 @@ export function Pagination({ totalPages, changePage, currentPage }: PaginationPr
     for (let i = 1; i <= totalPages; i++) {
         pageNumber.push(i)
     }
-
-    const [active, setActive] = useState("")
 
     return (
         <>

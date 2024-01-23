@@ -55,7 +55,7 @@ interface EditCardProps {
 }
 
 export function EditCard({ close, idProp, imgProp, titleProp, authorProp, priceProp, conditionProp, categoryProp, quantityProp }: EditCardProps) {
-    const [id, setId] = useState(idProp)
+    const id = idProp
     const [imgUrl, setImgUrl] = useState(imgProp)
     const [title, setTitle] = useState(titleProp)
     const [author, setAuthor] = useState(authorProp)

@@ -23,26 +23,6 @@ const Input = ({ value, type, placeholder, updateValue }: InputProps) => {
     )
 }
 
-interface selectProps {
-    value: string | number,
-    updateValue(value: any): void;
-}
-
-
-const Select = ({ value, updateValue }: selectProps) => {
-    return (
-        <>
-            <select value={value} onChange={e => updateValue(e.target.value)} placeholder='estado' >
-                <option value="" disabled selected hidden id='placeHolderOpt'></option>
-                <option value="Novo">Novo</option>
-                <option value="Seminovo" >Seminovo</option>
-                <option value="Usado" >Usado</option>
-            </select>
-
-        </>
-    )
-}
-
 interface EditCardProps {
     close: any,
     idProp: string,
@@ -55,7 +35,7 @@ interface EditCardProps {
 }
 
 export function EditClient({ close, idProp, nameProp, numberProp, cityProp, nbhProp, streetProp, hnProp }: EditCardProps) {
-    const [id, setId] = useState(idProp)
+    const id = idProp
     const [name, setName] = useState(nameProp)
     const [numberP, setNumber] = useState(numberProp)
     const [city, setCity] = useState(cityProp)

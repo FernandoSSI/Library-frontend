@@ -1,4 +1,3 @@
-import { AiOutlineSearch } from "react-icons/ai"
 import "./SearchBar.css"
 import { Link } from "react-router-dom"
 import { GoPlus } from "react-icons/go";
