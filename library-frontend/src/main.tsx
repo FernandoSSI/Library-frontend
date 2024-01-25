@@ -12,6 +12,7 @@ import { Clients } from './pages/clients/Clients'
 import AddClients from './pages/AddClients/AddClients'
 import { Orders } from './pages/Orders/Orders'
 import { AddOrders } from './pages/AddOrders/AddOrders'
+import { Wallet } from './pages/Wallet/Wallet'
 
 const queryClient = new QueryClient()
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/addorders",
         element: <AddOrders/>
+      },
+      {
+        path: "/wallet",
+        element: <Wallet/>
       }
     ]
   },
